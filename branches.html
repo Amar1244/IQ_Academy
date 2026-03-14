@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Our Branches — IQ Academy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --cream: #FAF6EF;
+            --cream-dark: #F2EBD9;
+            --cream-darker: #E8DCC8;
+            --blue-deep: #0B2B5C;
+            --blue-mid: #1A4A8A;
+            --blue-bright: #1D6BE4;
+            --blue-light: #3D8EF0;
+            --blue-sky: #C8DEFF;
+            --gold: #C9933A;
+            --text-dark: #1A1A2E;
+            --text-mid: #3D4A6B;
+            --text-light: #7A8099;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--cream); color: var(--text-dark); font-family: 'DM Sans', sans-serif; font-weight: 400; overflow-x: hidden; }
+
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 9999; opacity: 0.4;
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(250,246,239,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--cream-darker);
+            padding: 0 48px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .nav-brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+        .nav-brand .brand-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--blue-deep); letter-spacing: -0.02em; }
+        .nav-brand .brand-tag { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--blue-bright); letter-spacing: 0.2em; text-transform: uppercase; }
+        .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+        .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--text-mid); padding: 8px 18px; border-radius: 100px; transition: all 0.25s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--blue-deep); color: #fff; }
+        .nav-cta { background: var(--blue-bright) !important; color: #fff !important; padding: 10px 24px !important; border-radius: 100px !important; font-weight: 600 !important; box-shadow: 0 4px 20px rgba(29,107,228,0.35); }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,107,228,0.45) !important; background: var(--blue-bright) !important; color: #fff !important; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--blue-deep); border-radius: 2px; transition: 0.3s; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, #0B2B5C 0%, #1A4A8A 60%, #1D6BE4 100%);
+            position: relative; overflow: hidden;
+            padding: 80px 48px 90px;
+            text-align: center;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 36px 36px; pointer-events: none;
+        }
+        .page-hero-orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); pointer-events: none;
+        }
+        .page-hero-orb-1 { width:400px;height:400px;background:rgba(29,107,228,0.35);top:-150px;left:-100px; }
+        .page-hero-orb-2 { width:300px;height:300px;background:rgba(100,160,255,0.2);bottom:-100px;right:10%; }
+
+        .page-hero-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+        .page-hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 100px; padding: 7px 18px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.18em;
+            text-transform: uppercase; color: #fff;
+            margin-bottom: 24px;
+        }
+        .page-hero-tag .dot { width: 7px; height: 7px; background: #22C55E; border-radius: 50%; box-shadow: 0 0 0 3px rgba(34,197,94,0.3); animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,0.25);}50%{box-shadow:0 0 0 6px rgba(34,197,94,0.12);} }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem,5vw,3.8rem); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 18px; }
+        .page-hero h1 em { font-style: italic; color: var(--blue-sky); }
+        .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 520px; margin: 0 auto; }
+
+        /* ── BRANCH CARDS SECTION ── */
+        .branches-section { padding: 96px 0; background: var(--cream); }
+        .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ── BRANCH CARD ── */
+        .branch-card {
+            background: #fff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 48px rgba(11,43,92,0.10);
+            transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+            position: relative;
+        }
+        .branch-card:hover { transform: translateY(-10px); box-shadow: 0 24px 72px rgba(11,43,92,0.18); }
+
+        /* NEW badge for branch 2 */
+        .branch-new-badge {
+            position: absolute; top: 20px; right: 20px; z-index: 5;
+            background: var(--gold);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem; letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 14px; border-radius: 100px;
+            font-weight: 700;
+            box-shadow: 0 4px 16px rgba(201,147,58,0.4);
+        }
+
+        .branch-img-wrap { height: 260px; overflow: hidden; position: relative; }
+        .branch-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
+        .branch-card:hover .branch-img-wrap img { transform: scale(1.04); }
+        .branch-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,43,92,0.75) 0%, transparent 55%); }
+
+        .branch-img-label {
+            position: absolute; bottom: 20px; left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 900;
+            color: #fff; line-height: 1.2; z-index: 2;
+        }
+        .branch-img-label span {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.62rem; font-weight: 400;
+            color: rgba(255,255,255,0.65);
+            letter-spacing: 0.1em; text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .branch-body { padding: 32px 36px 36px; }
+
+        .branch-info-row {
+            display: flex; align-items: flex-start; gap: 14px;
+            margin-bottom: 18px; text-decoration: none;
+            color: var(--text-mid); font-size: 0.9rem;
+            line-height: 1.6; transition: color 0.2s;
+        }
+        .branch-info-row:hover { color: var(--blue-bright); }
+        .branch-info-icon {
+            width: 38px; height: 38px; flex-shrink: 0;
+            background: var(--blue-sky);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; margin-top: 1px;
+        }
+
+        .branch-divider { height: 1px; background: var(--cream-darker); margin: 24px 0; }
+
+        .branch-features {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+            margin-bottom: 28px;
+        }
+        .branch-feature-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.83rem; font-weight: 600; color: var(--blue-mid);
+        }
+        .branch-feature-item i { color: var(--blue-bright); font-size: 0.75rem; }
+
+        .branch-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .btn-branch-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--blue-deep); color: #fff;
+            text-decoration: none; padding: 12px 24px;
+            border-radius: 100px; font-weight: 700;
+            font-size: 0.88rem; transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(11,43,92,0.25);
+            flex: 1; justify-content: center;
+        }
+        .btn-branch-primary:hover { background: var(--blue-bright); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(29,107,228,0.35); }
+
+        .btn-branch-secondary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--blue-deep);
+            text-decoration: none; padding: 12px 24px;
+            border-radius: 100px; font-weight: 600;
+            font-size: 0.88rem; transition: all 0.25s;
+            border: 1.5px solid rgba(11,43,92,0.2);
+            flex: 1; justify-content: center;
+        }
+        .btn-branch-secondary:hover { border-color: var(--blue-bright); color: var(--blue-bright); transform: translateY(-2px); }
+
+        /* ── MAP SECTION ── */
+        .maps-section { padding: 0 0 96px; background: var(--cream); }
+        .maps-section .section-inner { }
+
+        .maps-header { text-align: center; margin-bottom: 48px; }
+        .section-tag { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px; }
+        .section-tag::before { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--blue-bright); border-radius: 2px; }
+        .section-label { font-family: 'Playfair Display', serif; font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 900; color: var(--blue-deep); letter-spacing: -0.02em; display: block; line-height: 1.1; }
+
+        .maps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+        .map-card {
+            background: #fff; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 6px 32px rgba(11,43,92,0.10);
+        }
+        .map-card-header {
+            background: var(--blue-deep);
+            padding: 18px 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .map-card-header .map-icon { font-size: 1.2rem; }
+        .map-card-header h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 800; color: #fff; }
+        .map-card-header p { font-size: 0.7rem; color: rgba(255,255,255,0.6); font-family: 'Space Mono', monospace; margin-top: 2px; }
+        .map-card iframe { display: block; width: 100%; height: 260px; border: none; }
+
+        /* ── CONTACT STRIP ── */
+        .contact-strip {
+            background: var(--blue-deep);
+            padding: 64px 48px;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .contact-strip::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 32px 32px; pointer-events: none;
+        }
+        .contact-strip-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+        .contact-strip h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; }
+        .contact-strip h2 em { font-style: italic; color: var(--blue-sky); }
+        .contact-strip p { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.7; margin-bottom: 36px; }
+        .contact-strip-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-strip-primary { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--blue-deep); text-decoration: none; padding: 14px 28px; border-radius: 100px; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .btn-strip-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .btn-strip-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 100px; font-weight: 600; font-size: 0.95rem; border: 1.5px solid rgba(255,255,255,0.3); transition: all 0.25s; }
+        .btn-strip-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
+
+        /* ── FOOTER ── */
+        footer { background: #07193A; padding: 64px 48px 28px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.6fr; gap: 56px; margin-bottom: 48px; }
+        .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--blue-sky); margin-bottom: 14px; }
+        .footer-brand-desc { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 240px; margin-bottom: 22px; }
+        .footer-socials { display: flex; gap: 10px; }
+        .footer-soc { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: all 0.25s; }
+        .footer-soc:hover { border-color: var(--blue-bright); color: var(--blue-bright); background: rgba(29,107,228,0.15); }
+        .footer-col h4 { font-family: 'Space Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-light); margin-bottom: 18px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { text-decoration: none; color: rgba(255,255,255,0.45); font-size: 0.85rem; transition: color 0.25s; }
+        .footer-col ul li a:hover { color: #fff; }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; text-decoration: none; color: rgba(255,255,255,0.45); font-size: 0.82rem; transition: color 0.25s; }
+        .footer-contact-item:hover { color: #fff; }
+        .footer-contact-item .fci { width: 28px; height: 28px; background: rgba(29,107,228,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+        .footer-branch-tag { display: inline-block; background: rgba(29,107,228,0.25); color: var(--blue-sky); font-family: 'Space Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 100px; margin-bottom: 4px; border: 1px solid rgba(29,107,228,0.35); }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; display: flex; align-items: center; justify-content: space-between; }
+        .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+        /* ── BACK TO TOP ── */
+        .back-to-top { position: fixed; bottom: 28px; right: 28px; width: 46px; height: 46px; background: var(--blue-bright); color: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(29,107,228,0.4); transition: all 0.25s; z-index: 999; }
+        .back-to-top:hover { background: var(--blue-deep); transform: translateY(-3px); }
+
+        /* ── ANIMATIONS ── */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .fade-up.in-view { opacity: 1; transform: translateY(0); }
+        .fade-up.delay-1 { transition-delay: 0.1s; }
+        .fade-up.delay-2 { transition-delay: 0.2s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--cream); padding: 20px 24px; border-bottom: 1px solid var(--cream-darker); gap: 4px; }
+            .page-hero { padding: 56px 24px 64px; }
+            .section-inner { padding: 0 24px; }
+            .branches-grid { grid-template-columns: 1fr; }
+            .maps-grid { grid-template-columns: 1fr; }
+            .branch-features { grid-template-columns: 1fr; }
+            .contact-strip { padding: 48px 24px; }
+            footer { padding: 40px 24px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-name">IQ Academy</span>
+            <span class="brand-tag">✦ Make It Happen</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Batches.html">Batches</a></li>
+            <li><a href="branches.html" class="active">Branches</a></li>
+            <li><a href="whyus.html">Why Us</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="tel:+919137412008" class="nav-cta">📞 Hurry Up!</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-orb page-hero-orb-1"></div>
+        <div class="page-hero-orb page-hero-orb-2"></div>
+        <div class="page-hero-inner">
+            <div class="page-hero-tag">
+                <span class="dot"></span>
+                <span>Now 2 Locations · Mumbai</span>
+            </div>
+            <h1>Our <em>Branches</em></h1>
+            <p>IQ Academy is growing! Find the branch closest to you and secure your seat for the 2026–27 academic year.</p>
+        </div>
+    </div>
+
+    <!-- BRANCH CARDS -->
+    <section class="branches-section">
+        <div class="section-inner">
+            <div class="branches-grid">
+
+                <!-- BRANCH 1 — Andheri East -->
+                <div class="branch-card fade-up delay-1">
+                    <div class="branch-img-wrap">
+                        <img src="img/carousel-1.jpg" alt="Andheri East Branch">
+                        <div class="branch-img-overlay"></div>
+                        <div class="branch-img-label">
+                            <span>Branch 01</span>
+                            Andheri East
+                        </div>
+                    </div>
+                    <div class="branch-body">
+
+                        <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank" class="branch-info-row">
+                            <div class="branch-info-icon">📍</div>
+                            <div>Poonam Darshan Bldg, Mahakali Caves Road, Andheri East, Mumbai — 400093</div>
+                        </a>
+
+                        <a href="tel:+919137412008" class="branch-info-row">
+                            <div class="branch-info-icon">📞</div>
+                            <div>+91 9137412008</div>
+                        </a>
+
+                        <a href="mailto:iqacademy18@gmail.com" class="branch-info-row">
+                            <div class="branch-info-icon">✉️</div>
+                            <div>iqacademy18@gmail.com</div>
+                        </a>
+
+                        <div class="branch-divider"></div>
+
+                        <div class="branch-features">
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> FYJC Commerce</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> SYJC Commerce</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> 30 Students / Batch</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Doubt Sessions</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Skilled Faculty</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Admissions Open</div>
+                        </div>
+
+                        <div class="branch-cta-row">
+                            <a href="https://wa.me/919137412008?text=I%20want%20to%20join%20the%20Andheri%20East%20branch" target="_blank" class="btn-branch-primary">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                            <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank" class="btn-branch-secondary">
+                                <i class="fa fa-map-marker-alt"></i> Get Directions
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- BRANCH 2 — Jogeshwari East -->
+                <div class="branch-card fade-up delay-2">
+                    <span class="branch-new-badge">✨ New Branch</span>
+                    <div class="branch-img-wrap">
+                        <img src="img/carousel-2.jpg" alt="Jogeshwari East Branch">
+                        <div class="branch-img-overlay"></div>
+                        <div class="branch-img-label">
+                            <span>Branch 02</span>
+                            Jogeshwari East
+                        </div>
+                    </div>
+                    <div class="branch-body">
+
+                        <a href="https://www.google.com/maps/search/Shiv+Sollitere+Jogeshwari+East+Mumbai" target="_blank" class="branch-info-row">
+                            <div class="branch-info-icon">📍</div>
+                            <div>2nd Floor, Shiv Sollitere, Caves Road, Subhash Nagar, Jogeshwari East, Mumbai</div>
+                        </a>
+
+                        <a href="tel:+918530181486" class="branch-info-row">
+                            <div class="branch-info-icon">📞</div>
+                            <div>+91 8530181486</div>
+                        </a>
+
+                        <a href="mailto:iqacademy18@gmail.com" class="branch-info-row">
+                            <div class="branch-info-icon">✉️</div>
+                            <div>iqacademy18@gmail.com</div>
+                        </a>
+
+                        <div class="branch-divider"></div>
+
+                        <div class="branch-features">
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> FYJC Commerce</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> SYJC Commerce</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> 30 Students / Batch</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Doubt Sessions</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Skilled Faculty</div>
+                            <div class="branch-feature-item"><i class="fa fa-check-circle"></i> Admissions Open</div>
+                        </div>
+
+                        <div class="branch-cta-row">
+                            <a href="https://wa.me/919137412008?text=I%20want%20to%20join%20the%20Jogeshwari%20East%20branch" target="_blank" class="btn-branch-primary">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                            <a href="https://www.google.com/maps/search/Shiv+Sollitere+Jogeshwari+East+Mumbai" target="_blank" class="btn-branch-secondary">
+                                <i class="fa fa-map-marker-alt"></i> Get Directions
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPS -->
+    <section class="maps-section">
+        <div class="section-inner">
+            <div class="maps-header fade-up">
+                <span class="section-tag" style="justify-content:center;">Find Us</span>
+                <span class="section-label" style="text-align:center;display:block;">Locate Our Branches</span>
+            </div>
+            <div class="maps-grid">
+                <div class="map-card fade-up delay-1">
+                    <div class="map-card-header">
+                        <span class="map-icon">📍</span>
+                        <div>
+                            <h3>Branch 1 — Andheri East</h3>
+                            <p>Poonam Darshan Bldg, Mahakali Caves Rd</p>
+                        </div>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3!2d72.8701399!3d19.1369697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7952eec62f3:0x87aed1292813b856!2sIQ+ACADEMY!5e0!3m2!1sen!2sin!4v1"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="map-card fade-up delay-2">
+                    <div class="map-card-header">
+                        <span class="map-icon">📍</span>
+                        <div>
+                            <h3>Branch 2 — Jogeshwari East ✨</h3>
+                            <p>2nd Floor, Shiv Sollitere, Caves Road</p>
+                        </div>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d72.8551!3d19.1421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b73b00000001%3A0x1!2sSubhash+Nagar%2C+Jogeshwari+East%2C+Mumbai!5e0!3m2!1sen!2sin!4v1"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT STRIP -->
+    <div class="contact-strip">
+        <div class="contact-strip-inner">
+            <h2>Ready to <em>Make It Happen?</em></h2>
+            <p>Seats are limited to 30 students per batch. Reach out today and secure your spot at the branch nearest to you.</p>
+            <div class="contact-strip-btns">
+                <a href="https://wa.me/919137412008?text=Hello%2C%20I%20want%20to%20know%20more%20about%20IQ%20Academy." target="_blank" class="btn-strip-primary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="tel:+919137412008" class="btn-strip-secondary">
+                    <i class="fa fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-name">IQ Academy</div>
+                <p class="footer-brand-desc">Empowering FYJC & SYJC Commerce students in Mumbai with expert coaching, personalized batches, and an unwavering drive to make it happen.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/919137412008" class="footer-soc" target="_blank">💬</a>
+                    <a href="mailto:iqacademy18@gmail.com" class="footer-soc">✉️</a>
+                    <a href="tel:+919137412008" class="footer-soc">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Batches.html">Batches</a></li>
+                    <li><a href="branches.html">Branches</a></li>
+                    <li><a href="whyus.html">Why Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Batches</h4>
+                <ul>
+                    <li><a href="Batches.html">FYJC Commerce</a></li>
+                    <li><a href="Batches.html">SYJC Commerce</a></li>
+                    <li><a href="index.html#contact">Admissions 2026–27</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact &amp; Branches</h4>
+                <a href="tel:+919137412008" class="footer-contact-item"><span class="fci">📞</span> +91 9137412008</a>
+                <a href="tel:+918530181486" class="footer-contact-item"><span class="fci">📞</span> +91 8530181486</a>
+                <a href="mailto:iqacademy18@gmail.com" class="footer-contact-item"><span class="fci">✉️</span> iqacademy18@gmail.com</a>
+                <div style="margin-top:14px;margin-bottom:6px;"><span class="footer-branch-tag">Branch 1 — Andheri East</span></div>
+                <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank" class="footer-contact-item">
+                    <span class="fci">📍</span> Poonam Darshan Bldg, Mahakali Caves Rd, Andheri East, Mumbai 400093
+                </a>
+                <div style="margin-top:10px;margin-bottom:6px;"><span class="footer-branch-tag" style="background:rgba(201,147,58,0.2);color:#C9933A;border-color:rgba(201,147,58,0.35);">Branch 2 — Jogeshwari East ✨ New</span></div>
+                <a href="https://www.google.com/maps/search/Shiv+Sollitere+Jogeshwari+East+Mumbai" target="_blank" class="footer-contact-item">
+                    <span class="fci">📍</span> 2nd Floor, Shiv Sollitere, Caves Road, Subhash Nagar, Jogeshwari East
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 IQ Academy — Make It Happen. All rights reserved.</p>
+            <p>Andheri East &amp; Jogeshwari East, Mumbai</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" title="Back to top">↑</a>
+
+    <script>
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+        }, { threshold: 0.12 });
+        fadeEls.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
