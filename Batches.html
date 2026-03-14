@@ -3,455 +3,677 @@
 
 <head>
     <meta charset="utf-8">
-    <title>IQ ACADEMY</title>
+    <title>Batches — IQ ACADEMY</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWH3PXE43C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MWH3PXE43C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MWH3PXE43C');
+    </script>
 
-  gtag('config', 'G-MWH3PXE43C');
-</script>
-
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
+
+<style>
+  /* GLOBAL */
+  body { background: #FAF5EE; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* NAVBAR */
+  .navbar { background: rgba(250,245,238,0.96) !important; backdrop-filter: blur(14px); border-bottom: 1px solid rgba(37,99,235,0.1); }
+  .nav-link { font-weight: 600; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: #374151 !important; }
+  .nav-link:hover, .nav-link.active { color: #2563EB !important; }
+  .btn-primary { background: #2563EB !important; border-color: #2563EB !important; border-radius: 8px !important; font-weight: 700 !important; }
+  .btn-primary:hover { background: #1E3A8A !important; border-color: #1E3A8A !important; }
+
+  /* PAGE HERO */
+  .page-hero {
+    position: relative; min-height: 400px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+    background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+    padding: 120px 24px 80px;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .page-hero::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 70px;
+    background: #FAF5EE; clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.95); padding: 6px 18px; border-radius: 100px;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    font-family: 'Space Mono', monospace; margin-bottom: 18px;
+  }
+  .page-hero-tag .dot { width: 7px; height: 7px; background: #93C5FD; border-radius: 50%; animation: blink 1.8s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 14px; }
+  .page-hero h1 em { font-style: italic; color: #93C5FD; }
+  .page-hero p { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 500px; margin: 0 auto; line-height: 1.75; }
+  .breadcrumb-item a { color: rgba(255,255,255,0.7) !important; text-decoration: none; }
+  .breadcrumb-item.active { color: rgba(255,255,255,0.5) !important; }
+  .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4) !important; }
+
+  /* MARQUEE */
+  .marquee-wrap { background: #2563EB; padding: 14px 0; overflow: hidden; border-bottom: 3px solid #1E3A8A; }
+  .marquee-track { display: flex; gap: 60px; white-space: nowrap; animation: marquee 25s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+  .marquee-item {
+    font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700;
+    color: rgba(255,255,255,0.92); letter-spacing: 0.14em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 20px; flex-shrink: 0;
+  }
+  .marquee-item::after { content: '◆'; opacity: 0.4; font-size: 0.5rem; }
+  .marquee-item .mbadge {
+    background: rgba(255,255,255,0.15); color: #fff;
+    padding: 3px 10px; border-radius: 100px;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+  }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* SECTION SHARED */
+  .sec-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #2563EB; font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    background: #DBEAFE; padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+  }
+  .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,3rem); font-weight: 700; color: #1A1A2E; line-height: 1.1; margin-bottom: 14px; }
+  .sec-title em { font-style: italic; color: #2563EB; }
+  .sec-desc { color: #6B7280; font-size: 0.95rem; line-height: 1.8; max-width: 520px; }
+
+  /* FEATURED BATCH */
+  .batches-sec { background: #FAF5EE; padding: 80px 0; }
+  .featured-batch {
+    background: linear-gradient(135deg, #1E3A8A, #2563EB);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: 0 20px 60px rgba(37,99,235,0.25);
+    position: relative;
+  }
+  .featured-batch::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .featured-batch-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: 320px;
+  }
+  .featured-batch-img {
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+    overflow: hidden;
+  }
+  .featured-batch-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+  .featured-batch-content {
+    padding: 48px 44px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .featured-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 20px;
+  }
+  .featured-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+  .featured-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .featured-subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+    min-height: 44px;
+  }
+  .featured-subj {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  .featured-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #2563EB;
+    padding: 13px 26px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  .featured-btn:hover { background: #DBEAFE; color: #1E3A8A; transform: translateY(-2px); gap: 12px; }
+
+  /* WHY MINI CARD */
+  .why-mini-card {
+    background: #fff; border: 1px solid rgba(37,99,235,0.1);
+    border-radius: 16px; padding: 28px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.06); height: 100%;
+  }
+  .why-mini-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700;
+    color: #1A1A2E; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+  }
+  .why-mini-grid { display: flex; flex-direction: column; gap: 12px; }
+  .why-mini-item {
+    background: #EFF6FF; border: 1px solid #DBEAFE; border-radius: 12px;
+    padding: 14px 16px; display: flex; align-items: center; gap: 14px; transition: all 0.3s;
+  }
+  .why-mini-item:hover { background: #DBEAFE; border-color: rgba(37,99,235,0.3); transform: translateX(4px); }
+  .why-mini-icon { width: 38px; height: 38px; background: #2563EB; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .why-mini-item h6 { font-size: 0.88rem; font-weight: 700; color: #1A1A2E; margin-bottom: 2px; }
+  .why-mini-item p { font-size: 0.76rem; color: #9CA3AF; margin: 0; line-height: 1.4; }
+
+  /* ADVERTISEMENT */
+  .advert-sec {
+    background: #F3EDE2;
+    padding: 80px 0;
+  }
+  .advert-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(37,99,235,0.1);
+    box-shadow: 0 6px 20px rgba(37,99,235,0.08);
+    transition: all 0.35s ease;
+    height: 100%;
+  }
+  .advert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(37,99,235,0.18);
+    border-color: rgba(37,99,235,0.35);
+  }
+  .advert-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .advert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .advert-card:hover .advert-img img { transform: scale(1.08); }
+  .advert-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30,58,138,0.6), transparent);
+  }
+  .advert-join {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563EB;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+  }
+  .advert-join:hover { background: #1E3A8A; transform: translateX(-50%) translateY(-3px); }
+  .advert-body {
+    padding: 20px 22px 24px;
+  }
+  .advert-body h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 12px;
+  }
+  .advert-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .advert-meta span {
+    font-size: 0.8rem;
+    color: #9CA3AF;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .advert-meta i { color: #2563EB; }
+
+  /* CTA */
+  .cta-sec { background: #FAF5EE; padding: 60px 0 80px; }
+  .cta-box {
+    background: #1A1A2E; border-radius: 24px; padding: 56px 64px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .cta-box::before { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, transparent 70%); }
+  .cta-text { position: relative; z-index: 1; }
+  .cta-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.2; }
+  .cta-text h2 em { font-style: italic; color: #3B82F6; }
+  .cta-text p { color: #6B7280; font-size: 0.95rem; line-height: 1.7; max-width: 460px; }
+  .cta-btns { display: flex; gap: 14px; flex-shrink: 0; position: relative; z-index: 1; }
+  .cta-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #2563EB; color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; box-shadow: 0 6px 20px rgba(37,99,235,0.32); transition: all 0.3s; }
+  .cta-btn-primary:hover { background: #1E3A8A; color: #fff; transform: translateY(-3px); }
+  .cta-btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: #fff; border: 2px solid rgba(255,255,255,0.2); padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
+  .cta-btn-ghost:hover { border-color: #3B82F6; color: #3B82F6; }
+
+  /* FOOTER */
+  footer { background: #1A1A2E; color: #fff; padding: 60px 64px 28px; }
+  footer * { color: #ffffff !important; font-size: 1rem !important; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 56px; margin-bottom: 48px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem !important; font-weight: 700; color: #3B82F6; text-decoration: none; }
+  .footer-brand p { color: #6B7280; line-height: 1.7; margin-top: 14px; margin-bottom: 22px; max-width: 270px; }
+  .footer-socials { display: flex; gap: 10px; }
+  .soc-btn { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; }
+  .soc-btn:hover { border-color: #3B82F6 !important; }
+  .footer-col h4 { font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; color: #3B82F6 !important; font-size: 0.8rem !important; }
+  .footer-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { color: #6B7280 !important; text-decoration: none; font-size: 0.9rem !important; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: #fff !important; }
+  .footer-map iframe { width: 100%; height: 180px; border: none; border-radius: 10px; margin-bottom: 16px; display: block; }
+  .footer-map-details { display: flex; flex-direction: column; gap: 10px; }
+  .footer-map-details a { display: flex; align-items: center; gap: 10px; color: #6B7280 !important; text-decoration: none; font-size: 0.88rem !important; transition: color 0.3s; }
+  .footer-map-details a:hover { color: #fff !important; }
+  .footer-map-details .ficon { width: 30px; height: 30px; background: rgba(59,130,246,0.15); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem !important; flex-shrink: 0; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { color: #6B7280 !important; font-size: 0.78rem !important; }
+
+  /* WHATSAPP */
+  .wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 8px 28px rgba(37,211,102,0.4); transition: all 0.3s; }
+  .wa-float:hover { transform: scale(1.1) translateY(-4px); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+  /* RESPONSIVE */
+  @media(max-width: 960px) {
+    .featured-batch-inner { grid-template-columns: 1fr; }
+    .featured-batch-img { min-height: 220px; }
+    .featured-batch-content { padding: 32px 28px; }
+    .featured-title { font-size: 2rem; }
+    .cta-box { flex-direction: column; padding: 36px 24px; text-align: center; }
+    .cta-btns { flex-direction: column; width: 100%; }
+    footer { padding: 40px 24px 22px; }
+    .footer-top { grid-template-columns: 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+  
+</style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
+
+    <!-- Spinner -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <div class="spinner-border text-primary" style="width:3rem;height:3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <!-- <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>IQ ACADEMY</h2>
-        </a> -->
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="padding-top: 60px;">
-    <div class="d-flex flex-column align-items-center position-relative">
-        <!-- Graduation cap icon positioned above the "I" -->
-        <i class="fa fa-graduation-cap position-absolute" style="top: -30px; font-size: 1.5rem; color: #0dcaf0;"></i>
-        <!-- Main title -->
-        <h2 class="m-0 text-primary" style="font-size: 2rem;">IQ ACADEMY</h2>
-        <!-- Tagline below -->
-        <p class="m-0" style="font-size: 0.8rem; color: #0dcaf0;">MAKE IT HAPPEN!</p>
-    </div>
-</a>
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="padding-top:60px;">
+            <div class="d-flex flex-column align-items-center position-relative">
+                <i class="fa fa-graduation-cap position-absolute" style="top:-30px;font-size:1.5rem;color:#0dcaf0;"></i>
+                <h2 class="m-0 text-primary" style="font-size:2rem;">IQ ACADEMY</h2>
+                <p class="m-0" style="font-size:0.8rem;color:#0dcaf0;">MAKE IT HAPPEN!</p>
+            </div>
+        </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="Batches.html" class="nav-item nav-link">Batches</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div> -->
+                <a href="Batches.html" class="nav-item nav-link active">Batches</a>
+                <a href="whyus.html" class="nav-item nav-link active">Why Us</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="https://wa.me/919137412008?text=Hello+I+want+to+enrol" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block" target="_blank">Enrol Now <i class="fa fa-arrow-right ms-2"></i></a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Batches</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Batches</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <div class="page-hero-tag"><span class="dot"></span> Academic Year 2026–27</div>
+            <h1>Our <em>Batches</em></h1>
+            <p>FYJC &amp; SYJC Commerce — small batches of 30 students, expert faculty, and a curriculum built for board exam success.</p>
+            <nav aria-label="breadcrumb" class="mt-3">
+                <ol class="breadcrumb justify-content-center" style="background:none;">
+                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Batches</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    <!-- Header End -->
 
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <div class="marquee-item">FYJC Commerce <span class="mbadge">11th Grade</span></div>
+            <div class="marquee-item">SYJC Commerce <span class="mbadge">12th Grade</span></div>
+            <div class="marquee-item">Admissions Open <span class="mbadge">2026-27</span></div>
+            <div class="marquee-item">Small Batches <span class="mbadge">30 Students</span></div>
+            <div class="marquee-item">Expert Faculty</div>
+            <div class="marquee-item">Doubt Solving Sessions</div>
+            <div class="marquee-item">Weekly Assessments</div>
+            <div class="marquee-item">Andheri East Mumbai</div>
+            <!-- <div class="marquee-item">98% Pass Rate <span class="mbadge">Board Exams</span></div> -->
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-item">FYJC Commerce <span class="mbadge">11th Grade</span></div>
+            <div class="marquee-item">SYJC Commerce <span class="mbadge">12th Grade</span></div>
+            <div class="marquee-item">Admissions Open <span class="mbadge">2026-27</span></div>
+            <div class="marquee-item">Small Batches <span class="mbadge">30 Students</span></div>
+            <div class="marquee-item">Expert Faculty</div>
+            <div class="marquee-item">Doubt Solving Sessions</div>
+            <div class="marquee-item">Weekly Assessments</div>
+            <div class="marquee-item">Andheri East Mumbai</div>
+            <!-- <div class="marquee-item">98% Pass Rate <span class="mbadge">Board Exams</span></div> -->
+        </div>
+    </div>
 
-    <!-- Categories Start -->
-     <div class="container-xxl py-5 category">
+    <!-- CMS ROOT -->
+    <div id="cms-root" class="container-xxl py-3"></div>
+
+    <!-- BATCHES SECTION -->
+    <section class="batches-sec">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Batches</h6>
-                <h1 class="mb-5">FYJC & SYJC </h1>
+
+            <div class="text-center mb-5 reveal">
+                <div class="sec-tag mx-auto" style="width:fit-content">Our Batches</div>
+                <h2 class="sec-title">FYJC &amp; <em>SYJC</em> Commerce</h2>
+                <p class="sec-desc mx-auto text-center">Limited seats ensure every student gets the attention they deserve. Admissions for 2026-27 are now open.</p>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <!-- <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div> -->
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">FYJC (First Year Junior College) Batches</h5>
-                                    <small class="text-primary">30 Students</small>
-                                </div>
-                            </a>
+
+            <!-- FYJC -->
+            <div class="featured-batch reveal mb-4">
+                <div class="featured-batch-inner">
+                    <div class="featured-batch-img">
+                        <img src="img/cat-2.jpg" alt="FYJC Batch">
+                    </div>
+                    <div class="featured-batch-content">
+                        <div class="featured-tag">Academic Year 2026-27</div>
+                        <div class="featured-title">FYJC</div>
+                        <div class="featured-sub">First Year Junior College — 11th Grade Commerce</div>
+                        <div class="d-flex gap-4 mb-3" style="color:rgba(255,255,255,0.7);font-size:0.85rem;">
+                            <span><i class="fa fa-users me-2" style="color:#93C5FD"></i>Max 30 Students</span>
+                            <span><i class="fa fa-map-marker-alt me-2" style="color:#93C5FD"></i>Andheri East</span>
                         </div>
-                        <!-- <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Video Editing</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div> -->
+                        <div class="featured-subjects">
+                            <span class="featured-subj">Accounts</span>
+                            <span class="featured-subj">Economics</span>
+                            <span class="featured-subj">OC</span>
+                            <span class="featured-subj">Mathematics</span>
+                            <span class="featured-subj">English</span>
+                        </div>
+                        <a href="https://wa.me/919137412008?text=I+want+to+enrol+in+FYJC+Commerce+batch" class="featured-btn" target="_blank">Enrol on WhatsApp →</a>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">SYJC (Second Year Junior College) Batches</h5>
-                            <small class="text-primary">30 Students</small>
+            </div>
+            
+
+            <!-- SYJC -->
+            <div class="featured-batch reveal mb-4">
+                <div class="featured-batch-inner">
+                    <div class="featured-batch-img">
+                        <img src="img/cat-4.jpg" alt="SYJC Batch">
+                    </div>
+                    <div class="featured-batch-content">
+                        <div class="featured-tag">Academic Year 2026-27</div>
+                        <div class="featured-title">SYJC</div>
+                        <div class="featured-sub">Second Year Junior College — 12th Grade Commerce</div>
+                        <div class="d-flex gap-4 mb-3" style="color:rgba(255,255,255,0.7);font-size:0.85rem;">
+                            <span><i class="fa fa-users me-2" style="color:#93C5FD"></i>Max 30 Students</span>
+                            <span><i class="fa fa-map-marker-alt me-2" style="color:#93C5FD"></i>Andheri East</span>
                         </div>
-                    </a>
+                        <div class="featured-subjects">
+                            <span class="featured-subj">Accounts</span>
+                            <span class="featured-subj">Economics</span>
+                            <span class="featured-subj">OC</span>
+                            <span class="featured-subj">Secretarial Practice</span>
+                            <span class="featured-subj">Mathematics</span>
+                        </div>
+                        <a href="https://wa.me/919137412008?text=I+want+to+enrol+in+SYJC+Commerce+batch" class="featured-btn" target="_blank">Enrol on WhatsApp →</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- WHY CHOOSE US -->
+            <div class="row g-4 mt-2">
+                <div class="col-12 reveal">
+                    <div class="why-mini-card">
+                        <div class="why-mini-title">🏆 Why Choose IQ Academy</div>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="why-mini-item">
+                                    <div class="why-mini-icon">👥</div>
+                                    <div><h6>Small Batches</h6><p>Max 30 students — personalized attention for every student.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="why-mini-item">
+                                    <div class="why-mini-icon">🧠</div>
+                                    <div><h6>Expert Faculty</h6><p>Years of Maharashtra Board teaching experience.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="why-mini-item">
+                                    <div class="why-mini-icon">📝</div>
+                                    <div><h6>Weekly Tests</h6><p>Regular assessments to keep students exam-ready.</p></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="why-mini-item">
+                                    <div class="why-mini-icon">💬</div>
+                                    <div><h6>Doubt Sessions</h6><p>Dedicated slots to resolve every student's queries.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <!-- Categories Start -->
+    </section>
 
-
-    <!-- Courses Start -->
-            <div class="container-xxl py-5">
+    <!-- ADVERTISEMENT SECTION -->
+    <section class="advert-sec">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">More Information</h6>
-                <h1 class="mb-5">Advertisment</h1>
+            <div class="text-center mb-5 reveal">
+                <div class="sec-tag mx-auto" style="width:fit-content">More Information</div>
+                <h2 class="sec-title">Admission <em>Open</em></h2>
+                <p class="sec-desc mx-auto text-center">Secure your seat for 2026-27 before batches fill up. Limited spots available.</p>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img\ddd.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <!-- <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                            </div>
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="advert-card">
+                        <div class="advert-img">
+                            <img src="img/ddd.jpg" alt="IQ Academy">
+                            <div class="advert-overlay"></div>
+                            <a href="https://wa.me/919137412008?text=I+want+to+join+IQ+Academy" class="advert-join" target="_blank">Join Now →</a>
                         </div>
-                        <!-- <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">$149.00</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                             </div> -->
-                             <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                        </div> 
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ ACADEMY</small>
-                            <!-- <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students Batches</small>
+                        <div class="advert-body">
+                            <h5>IQ Academy — Admissions Open 2026-27</h5>
+                            <div class="advert-meta">
+                                <span><i class="fa fa-user-tie"></i> IQ Academy</span>
+                                <span><i class="fa fa-users"></i> 30 Students</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/dd.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <!-- <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                <div class="col-lg-4 col-md-6 reveal d1">
+                    <div class="advert-card">
+                        <div class="advert-img">
+                            <img src="img/dd.jpg" alt="IQ Academy">
+                            <div class="advert-overlay"></div>
+                            <a href="https://wa.me/919137412008?text=I+want+to+join+IQ+Academy" class="advert-join" target="_blank">Join Now →</a>
+                        </div>
+                        <div class="advert-body">
+                            <h5>IQ Academy — Admissions Open 2026-27</h5>
+                            <div class="advert-meta">
+                                <span><i class="fa fa-user-tie"></i> IQ Academy</span>
+                                <span><i class="fa fa-users"></i> 30 Students</span>
                             </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <!-- <h3 class="mb-0">$149.00</h3> -->
-                            <!-- <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div> -->
-                             <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ Academy</small>
-                            <!-- <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students Batches</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="course-item bg-light">
-                        <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/dddd.jpg" alt="">
-                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <!-- <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                <div class="col-lg-4 col-md-6 reveal d2">
+                    <div class="advert-card">
+                        <div class="advert-img">
+                            <img src="img/dddd.jpg" alt="IQ Academy">
+                            <div class="advert-overlay"></div>
+                            <a href="https://wa.me/919137412008?text=I+want+to+join+IQ+Academy" class="advert-join" target="_blank">Join Now →</a>
+                        </div>
+                        <div class="advert-body">
+                            <h5>IQ Academy — Admissions Open 2026-27</h5>
+                            <div class="advert-meta">
+                                <span><i class="fa fa-user-tie"></i> IQ Academy</span>
+                                <span><i class="fa fa-users"></i> 30 Students</span>
                             </div>
-                        </div>
-                        <div class="text-center p-4 pb-0">
-                            <!-- <h3 class="mb-0">$149.00</h3> -->
-                            <!-- <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small>(123)</small>
-                            </div> -->
-                             <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                        </div>
-                        <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ ACADEMY</small>
-                            <!-- <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students batches</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <!-- Courses End -->
+    </section>
 
-
-    <!-- Testimonial Start -->
-    <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- CTA BANNER -->
+    <section class="cta-sec">
         <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+            <div class="cta-box reveal">
+                <div class="cta-text">
+                    <h2>Ready to <em>Make It Happen?</em></h2>
+                    <p>Admissions for 2026-27 are open. Seats are limited to just 30 students per batch — secure your spot today.</p>
                 </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
+                <div class="cta-btns">
+                    <a href="https://wa.me/919137412008?text=Hello+I+want+to+enrol+at+IQ+Academy" class="cta-btn-primary" target="_blank">Enrol on WhatsApp →</a>
+                    <a href="contact.html" class="cta-btn-ghost">Contact Us</a>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- Testimonial End -->
-        
+    </section>
 
-    <!-- Footer Start -->
-     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <!-- <a class="btn btn-link" href="">Privacy Policy</a> -->
-                    <a class="btn btn-link" href="#">Terms & Condition</a>
-                    <!-- <a class="btn btn-link" href="">FAQs & Help</a> -->
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">IQ Academy</a>
+                <p>Empowering FYJC &amp; SYJC Commerce students in Mumbai with expert coaching, personalized batches, and a drive to make it happen.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/919137412008" class="soc-btn" target="_blank">💬</a>
+                    <a href="mailto:iqacademy18@gmail.com" class="soc-btn">✉️</a>
+                    <a href="tel:+919137412008" class="soc-btn">📞</a>
                 </div>
-                <div class="col-lg-3 col-md-6">
-    <h4 class="text-white mb-3">Contact</h4>
-
-    <!-- Embedded Google Map -->
-    <div class="mb-3">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120560.05613972743!2d72.7898108339817!3d19.216952433410807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7952eec62f3%3A0x87aed1292813b856!2sIQ%20ACADEMY!5e0!3m2!1sen!2sin!4v1748925239958!5m2!1sen!2sin" 
-            width="100%" 
-            height="200" 
-            style="border:0; border-radius: 8px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-
-    <!-- Clickable Address -->
-    <p class="mb-2">
-        <i class="fa fa-map-marker-alt me-3"></i>
-        <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.2169524,72.7898108,12z/data=!4m10!1m2!2m1!1siq+academy+near+me!3m6!1s0x3be7b7952eec62f3:0x87aed1292813b856!8m2!3d19.1369697!4d72.8701399!15sChJpcSBhY2FkZW15IG5lYXIgbWUiA5ABAZIBD2NvYWNoaW5nX2NlbnRlcqoBSxABKg4iCmlxIGFjYWRlbXkoADIfEAEiG9pGkBKqqu3kG0af5-wSl7alyxs4ULM0JV8o3zIWEAIiEmlxIGFjYWRlbXkgbmVhciBtZeABAA!16s%2Fg%2F11mcf2mpwm?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D" 
-           target="_blank" 
-           class="text-white text-decoration-none">
-            Poonam Darshan Building, C-Wing, Mahakali Caves Rd, Poonam Nagar, Andheri East, Mumbai, Maharashtra 400093
-        </a>
-    </p>
-
-    <!-- Phone -->
-    <p class="mb-2">
-        <i class="fa fa-phone-alt me-3"></i>
-        <a href="tel:+919137412008" class="text-white text-decoration-none">+91 9137412008</a>
-        <!-- <a href="tel:+918530181486" class="text-white text-decoration-none">+91 9137412008</a> -->
-
-    </p>
-    <p class="mb-2">
-        <i class="fa fa-phone-alt me-3"></i>
-        <!-- <a href="tel:+919137412008" class="text-white text-decoration-none">+91 9137412008</a> -->
-        <a href="tel:+918530181486" class="text-white text-decoration-none">+91 8530181486</a>
-
-    </p>
-
-    <!-- Email -->
-   <p class="mb-2">
-    <i class="fa fa-envelope me-3"></i>
-    <a href="mailto:iqacademy18@gmail.com?subject=Course%20Inquiry" class="text-white text-decoration-none">iqacademy18@gmail.com
-    </a>
-</p>
-
-
-    <!-- Social Media -->
-    <div class="d-flex pt-2">
-        <!-- <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-twitter"></i></a> -->
-        <!-- <a class="btn btn-outline-light btn-social me-2" href="#"><i class="fab fa-facebook-f"></i></a> -->
-        <a class="btn btn-outline-light btn-social me-2" href="https://youtube.com/@iqacademy-w2t?si=KntPwe-X0Aqj-rFC"><i class="fab fa-youtube"></i></a>
-        <!-- <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a> -->
-    </div>
-</div>
-
-
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Poonam Darshan Building, apartment, Mahakali Caves Rd, C-Wing, Poonam Vihar, Poonam Nagar, Andheri East, Mumbai, Maharashtra 400093</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9137412008 </p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div> -->
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">IQ ACADEMY</h4>
-                    <!-- <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p> -->
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <!-- <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"> -->
-                        <!-- <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button> -->
-                    </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Batches.html">Batches</a></li>
+                    <li><a href="whyus.html">Why Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Batches</h4>
+                <ul>
+                    <li><a href="Batches.html">FYJC Commerce</a></li>
+                    <li><a href="Batches.html">SYJC Commerce</a></li>
+                    <li><a href="contact.html">Admissions 2026-27</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-map">
+                <h4>Contact</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3!2d72.8701399!3d19.1369697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7b7b7b7b7b7%3A0x1!2sIQ+ACADEMY!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="footer-map-details">
+                    <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank"><span class="ficon">📍</span>Poonam Darshan Building, C-Wing, Mahakali Caves Rd, Andheri East, Mumbai 400093</a>
+                    <a href="tel:+919137412008"><span class="ficon">📞</span>+91 9137412008</a>
+                    <a href="tel:+918530181486"><span class="ficon">📞</span>+91 8530181486</a>
+                    <a href="mailto:iqacademy18@gmail.com"><span class="ficon">✉️</span>iqacademy18@gmail.com</a>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">IQ ACADEMY ( MAKE IT HAPPEN )</a>
-
-                                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                    <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com"></a><br><br> -->
-                                    <!-- Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a> -->
-                    </div>
-                    <!-- <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2025 IQ Academy — Make It Happen. All rights reserved.</p>
+            <p>Andheri East, Mumbai — 400093</p>
         </div>
-    </div>
-    <!-- Footer End -->
+    </footer>
 
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919137412008?text=Hello+I+want+to+know+more+about+IQ+Academy" target="_blank" class="wa-float">💬</a>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -460,9 +682,22 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+    <script src="js/cms.js"></script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof loadPageSections === 'function') {
+          loadPageSections("batches");
+        }
+
+        // Reveal on scroll
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      });
+    </script>
+
+</body>
 </html>

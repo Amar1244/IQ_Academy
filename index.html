@@ -1,908 +1,1827 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>IQ ACADEMY</title>
+    <title>IQ ACADEMY — Make It Happen</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWH3PXE43C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MWH3PXE43C');
-</script>
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Icon Font Stylesheet -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF6EF;
+            --cream-dark: #F2EBD9;
+            --cream-darker: #E8DCC8;
+            --blue-deep: #0B2B5C;
+            --blue-mid: #1A4A8A;
+            --blue-bright: #1D6BE4;
+            --blue-light: #3D8EF0;
+            --blue-sky: #C8DEFF;
+            --gold: #C9933A;
+            --text-dark: #1A1A2E;
+            --text-mid: #3D4A6B;
+            --text-light: #7A8099;
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        html { scroll-behavior: smooth; }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    
+        body {
+            background: var(--cream);
+            color: var(--text-dark);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        /* ── NOISE TEXTURE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 246, 239, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--cream-darker);
+            padding: 0 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            line-height: 1;
+        }
+        .nav-brand .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--blue-deep);
+            letter-spacing: -0.02em;
+        }
+        .nav-brand .brand-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--blue-bright);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-mid);
+            padding: 8px 18px;
+            border-radius: 100px;
+            transition: all 0.25s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--blue-deep);
+            color: #fff;
+        }
+
+        .nav-cta {
+            background: var(--blue-bright);
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 100px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 20px rgba(29,107,228,0.35);
+            transition: transform 0.2s, box-shadow 0.2s !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(29,107,228,0.45) !important;
+            background: var(--blue-bright) !important;
+            color: #fff !important;
+        }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--blue-deep); border-radius: 2px; transition: 0.3s; }
+
+        /* ══════════════════════════════════════════
+           HERO — Light-Blue Blur Glassmorphism
+        ══════════════════════════════════════════ */
+        .hero {
+            min-height: 92vh;
+            background: linear-gradient(135deg, #EBF3FF 0%, #F5F0FF 40%, #DEEEFF 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ── Large blur orbs ── */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .hero-orb-1 {
+            width: 520px; height: 520px;
+            background: rgba(29,107,228,0.18);
+            top: -120px; left: -80px;
+            animation: orb-drift 8s ease-in-out infinite alternate;
+        }
+        .hero-orb-2 {
+            width: 400px; height: 400px;
+            background: rgba(100,160,255,0.20);
+            bottom: -100px; right: 15%;
+            animation: orb-drift 10s ease-in-out infinite alternate-reverse;
+        }
+        .hero-orb-3 {
+            width: 260px; height: 260px;
+            background: rgba(180,210,255,0.25);
+            top: 30%; right: 5%;
+            animation: orb-drift 7s ease-in-out infinite alternate;
+        }
+        .hero-orb-4 {
+            width: 180px; height: 180px;
+            background: rgba(11,43,92,0.08);
+            bottom: 20%; left: 38%;
+            animation: orb-drift 9s ease-in-out infinite;
+        }
+
+        @keyframes orb-drift {
+            0%   { transform: translate(0,0) scale(1); }
+            100% { transform: translate(20px, 28px) scale(1.06); }
+        }
+
+        /* ── Dot grid ── */
+        .hero-dotgrid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(11,43,92,0.10) 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+        }
+
+        /* ── Floating particles (decorative circles) ── */
+        .hero-particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-particle-1 { width:12px;height:12px;background:rgba(29,107,228,0.30);top:18%;left:42%;animation:float-p 5s ease-in-out infinite; }
+        .hero-particle-2 { width:8px;height:8px;background:rgba(29,107,228,0.20);top:60%;left:8%;animation:float-p 6.5s ease-in-out infinite 1s; }
+        .hero-particle-3 { width:16px;height:16px;background:rgba(100,160,255,0.22);bottom:22%;right:28%;animation:float-p 7s ease-in-out infinite 0.5s; }
+        .hero-particle-4 { width:6px;height:6px;background:rgba(11,43,92,0.18);top:70%;left:55%;animation:float-p 4.5s ease-in-out infinite 2s; }
+        @keyframes float-p {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-16px); }
+        }
+
+        /* ── Content grid ── */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 48px 100px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-left {}
+
+        /* ── Admissions open pill ── */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.75);
+            border: 1px solid rgba(29,107,228,0.25);
+            border-radius: 100px;
+            padding: 8px 18px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 16px rgba(29,107,228,0.12);
+        }
+        .hero-badge span {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--blue-mid);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: #22C55E;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+            box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+        }
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
+            50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.12); }
+        }
+
+        /* ── Heading ── */
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 4.8vw, 4.4rem);
+            font-weight: 900;
+            color: var(--blue-deep);
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            margin-bottom: 24px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--blue-bright);
+            position: relative;
+        }
+        /* Underline squiggle on italic */
+        .hero h1 em::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-bright), var(--blue-light));
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* ── Sub copy ── */
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            line-height: 1.78;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        /* ── CTA row ── */
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue-deep);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            box-shadow: 0 6px 28px rgba(11,43,92,0.28);
+        }
+        .btn-hero-primary:hover {
+            background: var(--blue-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 36px rgba(29,107,228,0.35);
+        }
+
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.75);
+            color: var(--blue-deep);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1.5px solid rgba(11,43,92,0.18);
+            backdrop-filter: blur(8px);
+            transition: all 0.25s;
+        }
+        .btn-hero-secondary:hover {
+            background: #fff;
+            border-color: var(--blue-bright);
+            color: var(--blue-bright);
+            transform: translateY(-2px);
+        }
+
+        /* ── Quick trust chips below buttons ── */
+        .hero-trust {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+        .hero-trust-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.65);
+            border: 1px solid rgba(29,107,228,0.15);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--blue-mid);
+            backdrop-filter: blur(6px);
+        }
+        .hero-trust-chip i { color: var(--blue-bright); font-size: 0.7rem; }
+
+        /* ── Right column ── */
+        .hero-right {
+            position: relative;
+            /* extra left padding so the secondary image has room to peek out */
+            padding-left: 20px;
+        }
+
+        /* Wrapper that contains both images + floating badges.
+           height is fixed so the stat row sits cleanly below */
+        .hero-img-stack {
+            position: relative;
+            /* enough height for main image + room for the secondary image overlap */
+            padding-bottom: 0;
+        }
+
+        /* Main image — tall with slight rotation */
+        .hero-img-main {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(11,43,92,0.20), 0 0 0 1px rgba(11,43,92,0.07);
+            transform: rotate(1.5deg);
+            transition: transform 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-img-main:hover { transform: rotate(0deg) scale(1.01); }
+        .hero-img-main img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Second image — overlaps BOTTOM-LEFT corner of main image (stays within the stack) */
+        .hero-img-secondary {
+            position: absolute;
+            /* sits over the lower-left of the main image, not below the stat row */
+            bottom: 20px;
+            left: -20px;
+            width: 160px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(11,43,92,0.25), 0 0 0 3px #fff;
+            transform: rotate(-2.5deg);
+            z-index: 5;   /* above main image AND glass-card */
+            transition: transform 0.4s ease;
+        }
+        .hero-img-secondary:hover { transform: rotate(0deg) scale(1.03); }
+        .hero-img-secondary img {
+            width: 100%; height: 130px;
+            object-fit: cover; display: block;
+        }
+
+        /* Glassmorphism stat card — floats top-right corner of main image */
+        .hero-glass-card {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.95);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 8px 32px rgba(11,43,92,0.14);
+            z-index: 4;
+            min-width: 140px;
+        }
+        .hero-glass-card .gc-icon {
+            width: 34px; height: 34px;
+            background: var(--blue-bright);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .hero-glass-card .gc-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--blue-deep);
+            line-height: 1;
+        }
+        .hero-glass-card .gc-lbl {
+            font-size: 0.68rem;
+            color: var(--text-light);
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        /* Social proof pill — anchored INSIDE the image stack, bottom-right */
+        .hero-glass-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.98);
+            border-radius: 100px;
+            padding: 9px 16px 9px 10px;
+            box-shadow: 0 6px 24px rgba(11,43,92,0.13);
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .hero-glass-badge .avatar-row { display: flex; }
+        .hero-glass-badge .avatar {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-left: -7px;
+        }
+        .hero-glass-badge .avatar:first-child { margin-left: 0; background: var(--blue-mid); }
+        .hero-glass-badge .avatar:nth-child(2) { background: #5B8AF0; }
+        .hero-glass-badge .avatar:nth-child(3) { background: #2C65CC; }
+        .hero-glass-badge .badge-text { line-height: 1.3; }
+        .hero-glass-badge .badge-text strong {
+            display: block; font-size: 0.78rem;
+            color: var(--blue-deep); font-weight: 700;
+        }
+        .hero-glass-badge .badge-text span {
+            font-size: 0.68rem; color: var(--text-light);
+        }
+
+        /* ── Stat row — sits BELOW the image stack, never inside it ── */
+        .hero-stat-row {
+            display: flex;
+            gap: 0;
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.95);
+            border-radius: 18px;
+            box-shadow: 0 6px 28px rgba(11,43,92,0.11);
+            margin-top: 20px;   /* clean gap below the image stack */
+            overflow: hidden;
+        }
+        .hero-stat-item {
+            flex: 1;
+            padding: 14px 16px;
+            text-align: center;
+            position: relative;
+        }
+        .hero-stat-item + .hero-stat-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 15%; height: 70%;
+            width: 1px;
+            background: rgba(11,43,92,0.09);
+        }
+        .hero-stat-item .s-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--blue-deep);
+            display: block;
+        }
+        .hero-stat-item .s-lbl {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* ── SECTION SCAFFOLDING ── */
+        section { padding: 96px 0; }
+        .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+        /* ── SECTION LABEL — Big prominent eyebrow title ── */
+        .section-label {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 900;
+            color: var(--blue-deep);
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            display: block;
+            line-height: 1.1;
+        }
+
+        /* Small uppercase tag that goes ABOVE the big label */
+        .section-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--blue-bright);
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-tag::before {
+            content: '';
+            display: inline-block;
+            width: 28px; height: 2px;
+            background: var(--blue-bright);
+            border-radius: 2px;
+        }
+
+        /* ── BIG section title — used inside .section-header blocks ── */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 900;
+            color: var(--blue-deep);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+        }
+
+        /* Centered section header block with decorative underline */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-header .section-title {
+            margin-bottom: 18px;
+        }
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+        /* Decorative accent line below big titles */
+        .section-title-accent {
+            display: inline-block;
+            position: relative;
+        }
+        .section-title-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue-bright), var(--blue-light), transparent);
+            border-radius: 2px;
+        }
+
+        /* ── FEATURES (4 cards) — Stunning Overlay Design ── */
+        #features {
+            background: var(--blue-deep);
+            position: relative;
+            overflow: hidden;
+            padding: 96px 0;
+        }
+        /* Layered mesh gradient */
+        #features::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 70% 80% at 0% 50%, rgba(29,107,228,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 60% at 100% 10%, rgba(100,160,255,0.20) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 50% 100%, rgba(11,43,92,0.6) 0%, transparent 70%);
+            z-index: 0;
+        }
+        /* Subtle grid lines overlay */
+        #features::after {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            z-index: 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Card outer wrapper — handles lift on hover */
+        .feature-card {
+            position: relative;
+            border-radius: 24px;
+            padding: 0;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+        }
+
+        /* Card inner — visible glass surface */
+        .fc-inner {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 40px 32px 38px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(6px);
+            transition: background 0.35s, border-color 0.35s;
+        }
+        .feature-card:hover .fc-inner {
+            background: rgba(255,255,255,0.11);
+            border-color: rgba(100,180,255,0.40);
+        }
+
+        /* Glow blob — appears behind icon on hover */
+        .fc-inner::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 180px; height: 180px;
+            background: var(--blue-bright);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .feature-card:hover .fc-inner::before { opacity: 0.25; }
+
+        /* Top shine line */
+        .fc-inner::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 10%; right: 10%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+        }
+
+        /* Ghost number — top right watermark */
+        .fc-number {
+            position: absolute;
+            top: 18px; right: 22px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.055);
+            line-height: 1;
+            user-select: none;
+            transition: color 0.35s;
+        }
+        .feature-card:hover .fc-number { color: rgba(255,255,255,0.10); }
+
+        /* Icon box */
+        .fc-icon {
+            width: 72px; height: 72px;
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.9rem;
+            margin-bottom: 28px;
+            position: relative; z-index: 1;
+            background: rgba(29,107,228,0.25);
+            border: 1.5px solid rgba(29,107,228,0.4);
+            transition: all 0.35s;
+        }
+        .feature-card:hover .fc-icon {
+            transform: scale(1.12) rotate(-6deg);
+            background: var(--blue-bright);
+            border-color: rgba(100,180,255,0.6);
+            box-shadow: 0 0 0 8px rgba(29,107,228,0.15), 0 8px 28px rgba(29,107,228,0.5);
+        }
+
+        /* Bottom colour bar — slides in on hover */
+        .fc-bar {
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--blue-bright), #60A5FA);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(.22,.68,0,1.2);
+            border-radius: 0 0 24px 24px;
+        }
+        .feature-card:hover .fc-bar { transform: scaleX(1); }
+
+        .fc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 800;
+            color: #fff; margin-bottom: 14px; line-height: 1.25;
+            position: relative; z-index: 1;
+        }
+        .fc-desc {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.58);
+            line-height: 1.78;
+            position: relative; z-index: 1;
+            transition: color 0.35s;
+        }
+        .feature-card:hover .fc-desc { color: rgba(255,255,255,0.80); }
+
+        /* ── ABOUT ── */
+        #about { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+        .about-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: -16px; left: -16px;
+            right: 32px; bottom: 32px;
+            background: var(--blue-sky);
+            border-radius: 20px;
+            z-index: 0;
+        }
+        .about-image-main {
+            position: relative;
+            z-index: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(11,43,92,0.18);
+        }
+        .about-image-main img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-floating-card {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            z-index: 2;
+            background: var(--blue-deep);
+            color: #fff;
+            border-radius: 16px;
+            padding: 20px 28px;
+            box-shadow: 0 12px 40px rgba(11,43,92,0.3);
+        }
+        .about-floating-card .big-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--blue-sky);
+            line-height: 1;
+        }
+        .about-floating-card .sub {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.65);
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .about-right {}
+        .about-body {
+            font-size: 1rem;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin: 20px 0 32px;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .about-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue-sky);
+            color: var(--blue-deep);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.83rem;
+            font-weight: 600;
+        }
+        .about-tag i { font-size: 0.75rem; color: var(--blue-bright); }
+
+        .btn-primary-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue-deep);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            box-shadow: 0 4px 20px rgba(11,43,92,0.25);
+        }
+        .btn-primary-pill:hover {
+            background: var(--blue-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(29,107,228,0.35);
+        }
+
+        /* ── BATCHES ── */
+        #batches {
+            background: var(--cream-dark);
+            position: relative;
+        }
+        #batches::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 80%, var(--blue-sky) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, var(--cream-darker) 0%, transparent 50%);
+            opacity: 0.5;
+        }
+
+        .batches-header { text-align: center; margin-bottom: 64px; position: relative; }
+
+        .batches-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            position: relative;
+        }
+
+        .batch-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(11,43,92,0.10);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .batch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(11,43,92,0.18);
+        }
+
+        .batch-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .batch-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .batch-card:hover .batch-image img { transform: scale(1.04); }
+
+        .batch-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11,43,92,0.85) 0%, transparent 60%);
+        }
+
+        .batch-label-chip {
+            position: absolute;
+            top: 20px; left: 20px;
+            background: var(--blue-bright);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+        }
+
+        .batch-body {
+            padding: 28px 32px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .batch-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--blue-deep);
+            margin-bottom: 6px;
+        }
+        .batch-meta {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-family: 'Space Mono', monospace;
+        }
+        .batch-join-btn {
+            background: var(--blue-deep);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.25s;
+            flex-shrink: 0;
+        }
+        .batch-join-btn:hover {
+            background: var(--blue-bright);
+        }
+
+        /* ── ADMISSION ── */
+        #admission { background: var(--cream); }
+        .admission-header { text-align: center; margin-bottom: 64px; }
+
+        .admission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .admission-card {
+            background: var(--blue-deep);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 30px rgba(11,43,92,0.15);
+        }
+        .admission-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(11,43,92,0.25);
+        }
+
+        .admission-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .admission-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+            opacity: 0.7;
+        }
+        .admission-card:hover .admission-img-wrap img { transform: scale(1.05); }
+
+        .admission-card-body {
+            padding: 24px 28px 28px;
+        }
+        .admission-card-body h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+        .admission-card-footer {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .admission-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.75);
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--blue-deep);
+            position: relative;
+            overflow: hidden;
+        }
+        #contact::before {
+            content: '';
+            position: absolute;
+            bottom: -100px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(29,107,228,0.3) 0%, transparent 70%);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 72px;
+            align-items: start;
+            position: relative;
+        }
+
+        .contact-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .contact-left p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.75;
+            margin-bottom: 36px;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+            transition: color 0.25s;
+        }
+        .contact-info-item:hover { color: #fff; }
+        .contact-info-item .ci-icon {
+            width: 40px; height: 40px;
+            background: rgba(29,107,228,0.3);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(29,107,228,0.5);
+        }
+
+        /* Form */
+        .contact-form-box {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 40px;
+        }
+        .contact-form-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--blue-deep);
+            font-weight: 800;
+            margin-bottom: 28px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-mid);
+            margin-bottom: 8px;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--cream-dark);
+            border: 1.5px solid var(--cream-darker);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue-bright);
+            box-shadow: 0 0 0 3px rgba(29,107,228,0.12);
+        }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+
+        .btn-form-submit {
+            width: 100%;
+            background: var(--blue-deep);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-form-submit:hover {
+            background: var(--blue-bright);
+            transform: translateY(-1px);
+        }
+        #whatsappLinkContainer {
+            margin-top: 14px;
+            padding: 12px 16px;
+            background: rgba(37,211,102,0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(37,211,102,0.3);
+            display: none;
+        }
+        #whatsappLinkContainer p { color: var(--text-mid); font-size: 0.85rem; margin-bottom: 6px; }
+        #whatsappLink { color: #25D366; font-weight: 600; font-size: 0.85rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #07193A;
+            padding: 64px 48px 28px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.6fr;
+            gap: 56px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--blue-sky);
+            margin-bottom: 14px;
+        }
+        .footer-brand-desc {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.75;
+            max-width: 240px;
+            margin-bottom: 22px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+        }
+        .footer-soc {
+            width: 36px; height: 36px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.25s;
+        }
+        .footer-soc:hover {
+            border-color: var(--blue-bright);
+            color: var(--blue-bright);
+            background: rgba(29,107,228,0.15);
+        }
+
+        .footer-col h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--blue-light);
+            margin-bottom: 18px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+            transition: color 0.25s;
+        }
+        .footer-col ul li a:hover { color: #fff; }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.82rem;
+            transition: color 0.25s;
+        }
+        .footer-contact-item:hover { color: #fff; }
+        .footer-contact-item .fci {
+            width: 28px; height: 28px;
+            background: rgba(29,107,228,0.2);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding-top: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-bottom p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* ── BACK TO TOP ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 46px; height: 46px;
+            background: var(--blue-bright);
+            color: #fff;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 20px rgba(29,107,228,0.4);
+            transition: all 0.25s;
+            z-index: 999;
+        }
+        .back-to-top:hover {
+            background: var(--blue-deep);
+            transform: translateY(-3px);
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .fade-up.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-up.delay-1 { transition-delay: 0.1s; }
+        .fade-up.delay-2 { transition-delay: 0.2s; }
+        .fade-up.delay-3 { transition-delay: 0.3s; }
+        .fade-up.delay-4 { transition-delay: 0.4s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 72px; left: 0; right: 0;
+                background: var(--cream);
+                padding: 20px 24px;
+                border-bottom: 1px solid var(--cream-darker);
+                gap: 4px;
+            }
+            .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 72px; }
+            .hero-right { display: block; padding-left: 0; }
+            .hero-img-secondary { display: none; }
+            .hero-glass-card { display: none; }
+            .hero-glass-badge { display: none; }
+            .hero-img-main { transform: none; }
+            .hero-img-main img { height: 260px; }
+            .hero-stat-row { margin-top: 16px; }
+            .hero-stat-item .s-num { font-size: 1.1rem; }
+            .section-inner { padding: 0 24px; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .about-image-wrap { display: block; }
+            .about-image-wrap::before { display: none; }
+            .about-image-main img { height: 280px; }
+            .about-floating-card { bottom: -12px; right: 12px; padding: 14px 18px; }
+            .about-floating-card .big-num { font-size: 1.8rem; }
+            .batches-grid { grid-template-columns: 1fr; }
+            .admission-grid { grid-template-columns: 1fr; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .features-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+            footer { padding: 40px 24px 20px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <!-- <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>IQ ACADEMY</h2>
-        </a> -->
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5" style="padding-top: 60px;">
-    <div class="d-flex flex-column align-items-center position-relative">
-        <!-- Graduation cap icon positioned above the "I" -->
-        <i class="fa fa-graduation-cap position-absolute" style="top: -30px; font-size: 1.5rem; color: #0dcaf0;"></i>
-        <!-- Main title -->
-        <h2 class="m-0 text-primary" style="font-size: 2rem;">IQ ACADEMY</h2>
-        <!-- Tagline below -->
-        <p class="m-0" style="font-size: 0.8rem; color: #0dcaf0;">MAKE IT HAPPEN!</p>
-    </div>
-</a>
-
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="Batches.html" class="nav-item nav-link">Batches</a>
-                <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div> -->
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="tel:+919137412008" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">! HURRY UP !<i class="fa fa-arrow-right ms-3"></i></a>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-name">IQ Academy</span>
+            <span class="brand-tag">✦ Make It Happen</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Batches.html">Batches</a></li>
+            <li><a href="whyus.html">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="tel:+919137412008" class="nav-cta">📞 Hurry Up!</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
         </div>
     </nav>
-    <!-- Navbar End -->
-    <!-- Carousel Start -->
-<div class="container-fluid p-0" style="margin-bottom: 30px;">
-    <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">IQ ACADEMY- MAKE IT HAPPEN</h5>
-                            <h1 class="display-3 text-white animated slideInDown">The Best Learning Place</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Unlock your potential with IQ Academy! Our expert tutors provide personalized batches to help you succeed in your studies, right here in our welcoming learning environment.</p>
-                            <a href="https://wa.me/919137412008?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="whatsapp-button animated slideInRight">
-                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                            <a href="tel:+919137412008" class="call-button animated slideInRight">
-                                <i class="fa fa-phone"></i> Call On Number
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">BEST IN-PERSON CLASSES</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Get Educated In-Person With Expert Guidance</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Your success story starts now. Secure your spot in an IQ Academy personalized batch and experience truly tailored learning. Limited seats available</p>
-                            <a href="https://wa.me/919137412008?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="whatsapp-button animated slideInRight">
-                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                            <a href="tel:+919137412008" class="call-button animated slideInRight">
-                                <i class="fa fa-phone"></i> Call On Number
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Carousel End -->
 
-<!-- Service Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                        <h5 class="mb-3">Skilled Instructors</h5>
-                        <p> Benefit from highly qualified professionals committed to nurturing your academic growth and ensuring your mastery.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                        <h5 class="mb-3">Personalized On-Campus Learning</h5>
-                        <p>Gain from dynamic interactive sessions and dedicated real-time support within our engaging and stimulating offline environment.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                        <h5 class="mb-3">Friendly Environment</h5>
-                        <p>Immerse yourself in a welcoming and distraction-free setting, benefiting from direct, personalized instructor interaction and collaboration.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="service-item text-center pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                        <h5 class="mb-3">The Power of Knowledge</h5>
-                        <p> Fuel your potential. We provide the tools and guidance to expand your understanding and achieve your academic goals.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Service End -->
+    <!-- HERO -->
+    <div class="hero">
+        <!-- Blur orbs -->
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+        <div class="hero-orb hero-orb-4"></div>
+        <!-- Dot grid -->
+        <div class="hero-dotgrid"></div>
+        <!-- Floating particles -->
+        <div class="hero-particle hero-particle-1"></div>
+        <div class="hero-particle hero-particle-2"></div>
+        <div class="hero-particle hero-particle-3"></div>
+        <div class="hero-particle hero-particle-4"></div>
 
-    <!-- Carousel Start -->
-    <!-- <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">IQ ACADEMY- MAKE IT HAPPEN</h5>
-                            <h1 class="display-3 text-white animated slideInDown">The Best Learning Place</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Unlock your potential with IQ Academy! Our expert tutors provide personalized batches to help you succeed in your studies, right here in our welcoming learning environment.</p>
-                            
-                            <a href="https://wa.me/917039190879?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="whatsapp-button animated slideInRight">
-                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                            <a href="tel:+917039190879" class="call-button animated slideInRight">
-                            <i class="fa fa-phone"></i> Call On Number
-                            </a>
+        <div class="hero-content">
+            <!-- LEFT: Copy & CTAs -->
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span>Admissions Open · 2026–27</span>
+                </div>
+
+                <h1>The Best Learning Place <em>in Mumbai</em></h1>
+
+                <p>Unlock your potential with IQ Academy. Expert tutors, personalized batches, and a welcoming environment designed to help you excel in FYJC &amp; SYJC Commerce.</p>
+
+                <div class="hero-actions">
+                    <a href="https://wa.me/919137412008?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="btn-hero-primary">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="tel:+919137412008" class="btn-hero-secondary">
+                        <i class="fa fa-phone"></i> Call Now
+                    </a>
+                </div>
+
+                <!-- Trust chips -->
+                <div class="hero-trust">
+                    <span class="hero-trust-chip"><i class="fa fa-check-circle"></i> Skilled Instructors</span>
+                    <span class="hero-trust-chip"><i class="fa fa-check-circle"></i> Small Batches</span>
+                    <span class="hero-trust-chip"><i class="fa fa-check-circle"></i> Commerce Focused</span>
+                </div>
+            </div>
+
+            <!-- RIGHT: Images + floating glass elements -->
+            <div class="hero-right">
+                <!-- Image stack: all positioned elements live inside here -->
+                <div class="hero-img-stack">
+                    <!-- Glassmorphism stat card — top right of image -->
+                    <div class="hero-glass-card">
+                        <div class="gc-icon"><i class="fa fa-graduation-cap"></i></div>
+                        <div class="gc-num"></div>
+                        <div class="gc-lbl">Expert Batches</div>
+                    </div>
+
+                    <!-- Main photo — slightly rotated -->
+                    <div class="hero-img-main">
+                        <img src="img/carousel-1.jpg" alt="IQ Academy classroom">
+                    </div>
+
+                    <!-- Second photo — overlaps bottom-left of main image -->
+                    <div class="hero-img-secondary">
+                        <img src="img/carousel-2.jpg" alt="IQ Academy students">
+                    </div>
+
+                    <!-- Social proof pill — bottom-right of image -->
+                    <div class="hero-glass-badge">
+                        <div class="avatar-row">
+                            <div class="avatar">AK</div>
+                            <div class="avatar">RS</div>
+                            <div class="avatar">PM</div>
+                        </div>
+                        <div class="badge-text">
+                            <strong>30 Students / Batch</strong>
+                            <span>Limited Seats Only</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-sm-10 col-lg-8">
-                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">BEST IN-PERSON CLASSES</h5>
-                            <h1 class="display-3 text-white animated slideInDown">Get Educated In-Person With Expert Guidance</h1>
-                            <p class="fs-5 text-white mb-4 pb-2">Your success story starts now. Secure your spot in an IQ Academy personalized batch and experience truly tailored learning. Limited seats available</p>
-                            
-                            <a href="https://wa.me/917039190879?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="whatsapp-button animated slideInRight">
-                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                            </a>
-                            <a href="tel:+917039190879" class="call-button animated slideInRight">
-                            <i class="fa fa-phone"></i> Call On Number
-                            </a>
-                        </div>
+                <!-- Stats row — cleanly below the image stack, no overlap -->
+                <div class="hero-stat-row">
+                    <div class="hero-stat-item">
+                        <span class="s-num">FYJC</span>
+                        <span class="s-lbl">First Year</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="s-num">SYJC</span>
+                        <span class="s-lbl">Second Year</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="s-num">30</span>
+                        <span class="s-lbl">Max Students</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="s-num">100%</span>
+                        <span class="s-lbl">Dedicated</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-            <!-- <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">IQ ACADEMY- MAKE IT HAPPEN</h5>
-                                <h1 class="display-3 text-white animated slideInDown">The Best Learning Place</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Unlock your potential with IQ Academy! Our expert tutors provide personalized batches to help you succeed in your studies, right here in our welcoming learning environment.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <!-- <a href="+91 7039190879" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a> -->
-                                <!-- <a href="https://wa.me/917039190879?text=Hello%2C%20I%20would%20like%20to%20get%20more%20information%20about%20IQ%20Academy." class="btn btn-light py-md-3 px-md-5 animated slideInRight">Chat on WhatsApp</a>                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">BEST IN-PERSON CLASSES</h5>
-                                <h1 class="display-3 text-white animated slideInDown">Get Educated In-Person With Expert Guidance</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Your success story starts now. Secure your spot in an IQ Academy personalized batch and experience truly tailored learning. Limited seats available</p>
-                                <!- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a> -->
-                                <!-- <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        <!-- </div>
-    </div> --> -->
-    <!-- Carousel End -->
 
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="section-inner">
+            <div class="features-grid">
 
-    <!-- Service Start -->
-    <!-- <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Skilled Instructors</h5>
-                            <p> Benefit from highly qualified professionals committed to nurturing your academic growth and ensuring your mastery.</p>
+                <div class="feature-card fade-up delay-1">
+                    <div class="fc-inner">
+                        <span class="fc-number">01</span>
+                        <div class="fc-icon">🎓</div>
+                        <div class="fc-title">Skilled Instructors</div>
+                        <p class="fc-desc">Highly qualified professionals committed to nurturing your academic growth and ensuring mastery of every subject.</p>
+                        <div class="fc-bar"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-up delay-2">
+                    <div class="fc-inner">
+                        <span class="fc-number">02</span>
+                        <div class="fc-icon">🏫</div>
+                        <div class="fc-title">On-Campus Learning</div>
+                        <p class="fc-desc">Dynamic interactive sessions with dedicated real-time support in an engaging, stimulating offline environment.</p>
+                        <div class="fc-bar"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-up delay-3">
+                    <div class="fc-inner">
+                        <span class="fc-number">03</span>
+                        <div class="fc-icon">🏡</div>
+                        <div class="fc-title">Friendly Environment</div>
+                        <p class="fc-desc">A welcoming, distraction-free setting benefiting from direct, personalized instructor interaction and collaboration.</p>
+                        <div class="fc-bar"></div>
+                    </div>
+                </div>
+
+                <div class="feature-card fade-up delay-4">
+                    <div class="fc-inner">
+                        <span class="fc-number">04</span>
+                        <div class="fc-icon">📖</div>
+                        <div class="fc-title">Power of Knowledge</div>
+                        <p class="fc-desc">We provide the tools and guidance to expand your understanding and achieve your academic goals with confidence.</p>
+                        <div class="fc-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-image-wrap fade-up">
+                    <div class="about-image-main">
+                        <img src="img/about.jpg" alt="About IQ Academy">
+                    </div>
+                    <div class="about-floating-card">
+                        <div class="big-num">2026</div>
+                        <div class="sub">Admissions Open</div>
+                    </div>
+                </div>
+                <div class="about-right fade-up delay-2">
+                    <span class="section-tag">Who We Are</span>
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title" style="font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:var(--text-mid);margin-bottom:22px;line-height:1.4;letter-spacing:-0.01em;">
+                        Welcome to IQ Academy
+                    </h2>
+                    <p class="about-body">
+                        <strong>IQ Academy</strong> offers personalized coaching and a stimulating learning environment, empowering students in FYJC & SYJC Commerce with expert guidance, regular assessments, and dedicated doubt-solving sessions for comprehensive academic and personal growth.
+                    </p>
+                    <p class="about-body" style="margin-top:-16px">
+                        With admissions open for 2026–27, IQ Academy is the ideal place for students seeking structured, interactive learning and individual development, delivered by experienced faculty committed to fostering a strong sense of community.
+                    </p>
+                    <div class="about-tags">
+                        <span class="about-tag"><i class="fa fa-check"></i> Skilled Instructors</span>
+                        <span class="about-tag"><i class="fa fa-check"></i> Individual Development</span>
+                        <span class="about-tag"><i class="fa fa-check"></i> Interactive Learning</span>
+                        <span class="about-tag"><i class="fa fa-check"></i> Experienced Faculty</span>
+                        <span class="about-tag"><i class="fa fa-check"></i> Doubt Solving Sessions</span>
+                        <span class="about-tag"><i class="fa fa-check"></i> Regular Assessments</span>
+                    </div>
+                    <a href="about.html" class="btn-primary-pill">Discover More <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BATCHES -->
+    <section id="batches">
+        <div class="section-inner" style="position:relative">
+            <div class="batches-header fade-up section-header">
+                <span class="section-tag" style="justify-content:center;">Coaching Batches</span>
+                <span class="section-label">Our Batches</span>
+                <p>Small batches of 30 students for focused, personalized coaching in all Commerce subjects.</p>
+            </div>
+            <div class="batches-grid">
+                <div class="batch-card fade-up delay-1">
+                    <div class="batch-image">
+                        <img src="img/cat-2.jpg" alt="FYJC Batch">
+                        <div class="batch-image-overlay"></div>
+                        <span class="batch-label-chip">FYJC</span>
+                    </div>
+                    <div class="batch-body">
+                        <div>
+                            <h3>First Year Junior College</h3>
+                            <span class="batch-meta">30 Students · Commerce</span>
+                        </div>
+                        <a href="https://wa.me/919137412008?text=I%20want%20to%20join%20FYJC%20batch" class="batch-join-btn">Join Now</a>
+                    </div>
+                </div>
+                <div class="batch-card fade-up delay-2">
+                    <div class="batch-image">
+                        <img src="img/cat-4.jpg" alt="SYJC Batch">
+                        <div class="batch-image-overlay"></div>
+                        <span class="batch-label-chip">SYJC</span>
+                    </div>
+                    <div class="batch-body">
+                        <div>
+                            <h3>Second Year Junior College</h3>
+                            <span class="batch-meta">30 Students · Commerce</span>
+                        </div>
+                        <a href="https://wa.me/919137412008?text=I%20want%20to%20join%20SYJC%20batch" class="batch-join-btn">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSION -->
+    <section id="admission">
+        <div class="section-inner">
+            <div class="admission-header fade-up section-header">
+                <span class="section-tag" style="justify-content:center;">Enrol Today</span>
+                <span class="section-label">More Information</span>
+                <p>Seats are filling fast — secure your spot in IQ Academy's FYJC or SYJC Commerce batch today.</p>
+            </div>
+            <div class="admission-grid">
+                <div class="admission-card fade-up delay-1">
+                    <div class="admission-img-wrap">
+                        <img src="img/ddd.jpg" alt="">
+                    </div>
+                    <div class="admission-card-body">
+                        <h4>IQ Academy — Admission Open for 2026–27</h4>
+                        <div class="admission-card-footer">
+                            <span class="admission-chip"><i class="fa fa-user-tie"></i> IQ Academy</span>
+                            <span class="admission-chip"><i class="fa fa-users"></i> 30 Students</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3">Personalized On-Campus Learning</h5>
-                            <p>Gain from dynamic interactive sessions and dedicated real-time support within our engaging and stimulating offline environment.</p>
+                <div class="admission-card fade-up delay-2">
+                    <div class="admission-img-wrap">
+                        <img src="img/dd.jpg" alt="">
+                    </div>
+                    <div class="admission-card-body">
+                        <h4>IQ Academy — Admission Open for 2026–27</h4>
+                        <div class="admission-card-footer">
+                            <span class="admission-chip"><i class="fa fa-user-tie"></i> IQ Academy</span>
+                            <span class="admission-chip"><i class="fa fa-users"></i> 30 Students</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Friendly Environment</h5>
-                            <p>Immerse yourself in a welcoming and distraction-free setting, benefiting from direct, personalized instructor interaction and collaboration.</p>
-                        </div>
+                <div class="admission-card fade-up delay-3">
+                    <div class="admission-img-wrap">
+                        <img src="img/dddd.jpg" alt="">
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center pt-3">
-                        <div class="p-4">
-                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">The Power of Knowledge</h5>
-                            <p> Fuel your potential. We provide the tools and guidance to expand your understanding and achieve your academic goals.</p>
+                    <div class="admission-card-body">
+                        <h4>IQ Academy — Admission Open for 2026–27</h4>
+                        <div class="admission-card-footer">
+                            <span class="admission-chip"><i class="fa fa-user-tie"></i> IQ Academy</span>
+                            <span class="admission-chip"><i class="fa fa-users"></i> 30 Students</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- Service End -->
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-inner">
+            <div class="contact-wrapper">
+                <div class="contact-left fade-up">
+                    <span class="section-label" style="color: var(--blue-sky);">Get In Touch</span>
+                    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;">
+                        Let's Start Your<br><em style="font-style:italic;color:var(--blue-sky);">Journey Together</em>
+                    </h2>
+                    <p>Have questions about admissions, batches, or anything else? Reach out — we're here to help you make it happen.</p>
+                    <div class="contact-info-list">
+                        <a href="https://wa.me/919137412008" class="contact-info-item" target="_blank">
+                            <span class="ci-icon">💬</span>
+                            WhatsApp: +91 9137412008
+                        </a>
+                        <a href="tel:+919137412008" class="contact-info-item">
+                            <span class="ci-icon">📞</span>
+                            +91 9137412008
+                        </a>
+                        <a href="tel:+918530181486" class="contact-info-item">
+                            <span class="ci-icon">📞</span>
+                            +91 8530181486
+                        </a>
+                        <a href="mailto:iqacademy18@gmail.com" class="contact-info-item">
+                            <span class="ci-icon">✉️</span>
+                            iqacademy18@gmail.com
+                        </a>
+                        <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank" class="contact-info-item">
+                            <span class="ci-icon">📍</span>
+                            Poonam Darshan Bldg, Mahakali Caves Rd, Andheri East, Mumbai 400093
+                        </a>
+                    </div>
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to IQ ACADEMY </h1>
-                    <p class="mb-4"><b>IQ Academy</b> offers personalized coaching and a stimulating learning environment, empowering students in FYJC & SYJC Commerce with expert guidance, regular assessments, and dedicated doubt-solving sessions for comprehensive academic and personal growth.</p>
-                    <p class="mb-4">With admissions open for 2025-26, IQ Academy is the ideal place for students seeking structured, interactive learning and individual development, delivered by experienced faculty committed to fostering a strong sense of community and belonging.</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Individual Development</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Interactive Learning </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Experienced Faculty </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Doubt solving sessions </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Regular Assessment </p>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Categories Start -->
-    <div class="container-xxl py-5 category">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Batches</h6>
-            <h1 class="mb-5">FYJC & SYJC</h1>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-6 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden image-container">
-                        <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">FYJC (First Year Junior College) Batches</h5>
-                        <small class="text-primary">30 Students</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 wow zoomIn" data-wow-delay="0.7s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden image-container">
-                        <img class="img-fluid" src="img/cat-4.jpg" alt="">
-                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">SYJC (Second Year Junior College) Batches</h5>
-                        <small class="text-primary">30 Students</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .image-container {
-        height: 400px; /* Consistent height matching the Advertisement section */
-        overflow: hidden;
-        display: flex;
-        align-items: center; /* Vertically centers the image */
-        justify-content: center; /* Horizontally centers the image */
-        background-color: #f8f9fa; /* Optional: Adds a background color for empty space */
-    }
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Displays the entire image without cropping */
-        object-position: center; /* Centers the image */
-    }
-</style>
-    <!-- Categories Start -->
-
-
-    <!-- Courses Start -->
-        <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">More Information</h6>
-            <h1 class="mb-5">Advertisement</h1>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden image-container">
-                        <img class="img-fluid" src="img/ddd.jpg" alt="">
-                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                    </div>
-                    <div class="d-flex border-top">
-                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ ACADEMY</small>
-                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students Batches</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden image-container">
-                        <img class="img-fluid" src="img/dd.jpg" alt="">
-                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                    </div>
-                    <div class="d-flex border-top">
-                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ Academy</small>
-                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students Batches</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="course-item bg-light">
-                    <div class="position-relative overflow-hidden image-container">
-                        <img class="img-fluid" src="img/dddd.jpg" alt="">
-                        <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                            <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
-                        </div>
-                    </div>
-                    <div class="text-center p-4 pb-0">
-                        <h5 class="mb-4">IQ ACADEMY (ADMISSION OPEN FOR 2025-26)</h5>
-                    </div>
-                    <div class="d-flex border-top">
-                        <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>IQ ACADEMY</small>
-                        <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students Batches</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .image-container {
-        height: 400px; /* Increased height for taller images */
-        overflow: hidden;
-        display: flex; /* Ensures proper centering of images */
-        align-items: center; /* Vertically centers the image */
-        justify-content: center; /* Horizontally centers the image */
-        background-color: #f8f9fa; /* Optional: Adds a background color for empty space */
-    }
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Displays the entire image without cropping */
-        object-position: center; /* Centers the image */
-    }
-</style>
-    <!-- Courses End -->
-
-
-    <!-- Team Start -->
-    <!-- <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
-                <h1 class="mb-5">Expert Instructors</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-1.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-2.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-3.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="img/testimonial-4.jpg" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Testimonial End -->
-     <!-- Form start -->
-    
-    <!-- <div class="contact-form">
-  <h2>Contact IQ Academy</h2>
-  <form id="whatsappForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="number">Phone Number:</label>
-    <input type="tel" id="number" name="number" required 
-           pattern="[0-9]{10}" inputmode="numeric" maxlength="10"
-           oninvalid="this.setCustomValidity('Please enter a 10-digit phone number (numbers only)')"
-           oninput="this.setCustomValidity('')">
-    
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-    
-    <button type="submit">Send to WhatsApp</button>
-  </form>
-</div>
-
-<script>
-  document.getElementById('whatsappForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const whatsappNumber = '+919137412008';
-    
-    const name = document.getElementById('name').value;
-    const number = document.getElementById('number').value;
-    const message = document.getElementById('message').value;
-    
-    const text = `New message from ${name} (${number}):\n${message}`;
-    
-    const encodedText = encodeURIComponent(text);
-    
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-    
-    window.open(whatsappUrl, '_blank');
-  });
-</script> -->
-    <div class="contact-form">
-  <h2>Contact IQ Academy</h2>
-  <form id="whatsappForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="number">Phone Number:</label>
-    <input type="tel" id="number" name="number" required 
-           pattern="[0-9]{10}" inputmode="numeric" maxlength="10"
-           oninvalid="this.setCustomValidity('Please enter a 10-digit phone number (numbers only)')"
-           oninput="this.setCustomValidity('')">
-    
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-    
-    <button type="submit">Send to WhatsApp</button>
-  </form>
-  <div id="whatsappLinkContainer" style="margin-top: 15px; display: none;">
-    <p style="color: red;">Could not open WhatsApp automatically. Please click the link below to send your message:</p>
-    <a id="whatsappLink" target="_blank" style="color: #25D366; text-decoration: underline;">Open WhatsApp</a>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('whatsappForm');
-    const whatsappLinkContainer = document.getElementById('whatsappLinkContainer');
-    const whatsappLink = document.getElementById('whatsappLink');
-    
-    if (!form || !whatsappLinkContainer || !whatsappLink) {
-      console.error('Form or link elements not found!');
-      return;
-    }
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const whatsappNumber = '+918530181486';
-      
-      const name = document.getElementById('name').value.trim();
-      const number = document.getElementById('number').value.trim();
-      const message = document.getElementById('message').value.trim();
-      
-      console.log('Captured Name:', name);
-      console.log('Captured Number:', number);
-      console.log('Captured Message:', message);
-      
-      if (!name || !number || !message) {
-        alert('Please fill out all fields correctly.');
-        return;
-      }
-      
-      const text = `New message from ${name} (${number}): ${message}`;
-      console.log('Constructed Text:', text);
-      
-      const encodedText = encodeURIComponent(text);
-      console.log('Encoded Text:', encodedText);
-      
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-      console.log('WhatsApp URL:', whatsappUrl);
-      
-      try {
-        // Attempt to open WhatsApp
-        const whatsappWindow = window.open(whatsappUrl, '_blank');
-        
-        // Check if the window opened successfully
-        if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
-          throw new Error('WhatsApp window failed to open');
-        }
-      } catch (error) {
-        console.error('Error opening WhatsApp:', error);
-        // Show the fallback link
-        whatsappLink.href = whatsappUrl;
-        whatsappLink.textContent = whatsappUrl;
-        whatsappLinkContainer.style.display = 'block';
-      }
-    });
-  });
-</script>
-<!-- form end -->
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <!-- <a class="btn btn-link" href="">Privacy Policy</a> -->
-                    <a class="btn btn-link" href="#">Terms & Condition</a>
-                    <!-- <a class="btn btn-link" href="">FAQs & Help</a> -->
-                </div>
-    
-    <div class="col-lg-3 col-md-6">
-    <h4 class="text-white mb-3">Contact</h4>
-
-    <!-- Embedded Google Map -->
-    <div class="mb-3">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120560.05613972743!2d72.7898108339817!3d19.216952433410807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7952eec62f3%3A0x87aed1292813b856!2sIQ%20ACADEMY!5e0!3m2!1sen!2sin!4v1748925239958!5m2!1sen!2sin" 
-            width="100%" 
-            height="200" 
-            style="border:0; border-radius: 8px;" 
-            allowfullscreen 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-
-    <!-- Clickable Address -->
-    <p class="mb-2">
-        <i class="fa fa-map-marker-alt me-3"></i>
-        <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" 
-           target="_blank" 
-           class="text-white text-decoration-none">
-            Poonam Darshan Building, C-Wing, Mahakali Caves Rd, Andheri East, Mumbai, MH 400093
-        </a>
-    </p>
-
-    <!-- Phone Numbers -->
-    <p class="mb-2">
-        <i class="fa fa-phone-alt me-3"></i>
-        <a href="tel:+919137412008" class="text-white text-decoration-none">+91 9137412008</a>
-        <!-- <a href="tel:+918530181486" class="text-white text-decoration-none">+91 9137412008</a> -->
-
-    </p>
-    <p class="mb-2">
-        <i class="fa fa-phone-alt me-3"></i>
-        <!-- <a href="tel:+919137412008" class="text-white text-decoration-none">+91 9137412008</a> -->
-        <a href="tel:+918530181486" class="text-white text-decoration-none">+91 8530181486</a>
-    </p>
-
-    <!-- Email -->
-    <p class="mb-2">
-        <i class="fa fa-envelope me-3"></i>
-        <a href="mailto:iqacademy18@gmail.com" class="text-white text-decoration-none">
-            iqacademy18@gmail.com
-        </a>
-    </p>
-
-    <!-- Social Media -->
-    <div class="d-flex pt-2">
-        <a class="btn btn-outline-light btn-social me-2" href="https://youtube.com/@iqacademy-w2t?si=KntPwe-X0Aqj-rFC" target="_blank">
-            <i class="fab fa-youtube"></i>
-        </a>
-    </div>
-</div>
-
-
-
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Poonam Darshan Building, apartment, Mahakali Caves Rd, C-Wing, Poonam Vihar, Poonam Nagar, Andheri East, Mumbai, Maharashtra 400093</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9137412008 </p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-2.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-3.jpg" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="img/course-1.jpg" alt="">
-                        </div>
-                    </div>
-                </div> -->
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">IQ ACADEMY</h4>
-                    <!-- <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p> -->
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <!-- <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"> -->
-                        <!-- <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">IQ ACADEMY ( MAKE IT HAPPEN )</a>
-
-                                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                                    <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com"></a><br><br> -->
-                                    <!-- Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a> -->
-                    </div>
-                    <!-- <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
+                    <!-- MAP EMBED -->
+                    <!-- <div style="margin-top:28px;border-radius:18px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3!2d72.8701399!3d19.1369697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7952eec62f3:0x87aed1292813b856!2sIQ+ACADEMY!5e0!3m2!1sen!2sin!4v1"
+                            width="100%" height="200" style="border:0;display:block;"
+                            allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div> -->
                 </div>
+                <div class="contact-form-box fade-up delay-2">
+                    <h3>Send Us a Message</h3>
+                    <form id="whatsappForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="e.g. Rahul Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Phone Number</label>
+                            <input type="tel" id="number" name="number" placeholder="10-digit mobile number" required
+                                   pattern="[0-9]{10}" inputmode="numeric" maxlength="10"
+                                   oninvalid="this.setCustomValidity('Please enter a valid 10-digit number')"
+                                   oninput="this.setCustomValidity('')">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your query..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-form-submit">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                    <div id="whatsappLinkContainer">
+                        <p>Could not open WhatsApp automatically. Click the link below:</p>
+                        <a id="whatsappLink" target="_blank">Open WhatsApp</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+    </section>
 
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-name">IQ Academy</div>
+                <p class="footer-brand-desc">Empowering FYJC & SYJC Commerce students in Mumbai with expert coaching, personalized batches, and an unwavering drive to make it happen.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/919137412008" class="footer-soc" target="_blank">💬</a>
+                    <a href="mailto:iqacademy18@gmail.com" class="footer-soc">✉️</a>
+                    <a href="tel:+919137412008" class="footer-soc">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Batches.html">Batches</a></li>
+                    <li><a href="whyus.html">Why Us</a></li>
+                    <li><a href="whyus.html">Why Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Batches</h4>
+                <ul>
+                    <li><a href="Batches.html">FYJC Commerce</a></li>
+                    <li><a href="Batches.html">SYJC Commerce</a></li>
+                    <li><a href="#contact">Admissions 2026–27</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="tel:+919137412008" class="footer-contact-item">
+                    <span class="fci">📞</span> +91 9137412008
+                </a>
+                <a href="tel:+918530181486" class="footer-contact-item">
+                    <span class="fci">📞</span> +91 8530181486
+                </a>
+                <a href="mailto:iqacademy18@gmail.com" class="footer-contact-item">
+                    <span class="fci">✉️</span> iqacademy18@gmail.com
+                </a>
+                <a href="https://www.google.com/maps/place/IQ+ACADEMY/@19.1369697,72.8701399,17z" target="_blank" class="footer-contact-item">
+                    <span class="fci">📍</span> Poonam Darshan Bldg, Mahakali Caves Rd, Andheri East, Mumbai 400093
+                </a>
+                <!-- Map -->
+                <div style="margin-top:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3!2d72.8701399!3d19.1369697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7952eec62f3:0x87aed1292813b856!2sIQ+ACADEMY!5e0!3m2!1sen!2sin!4v1"
+                        width="100%" height="180" style="border:0;display:block;"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 IQ Academy — Make It Happen. All rights reserved.</p>
+            <p>Andheri East, Mumbai — 400093</p>
+        </div>
+    </footer>
 
-    <!-- Back to Top -->
-    <a href="" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="back-to-top" title="Back to top">↑</a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script>
+        // Nav toggle
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // Scroll animation
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+        }, { threshold: 0.12 });
+        fadeEls.forEach(el => observer.observe(el));
+
+        // WhatsApp form
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('whatsappForm');
+            const linkContainer = document.getElementById('whatsappLinkContainer');
+            const whatsappLink = document.getElementById('whatsappLink');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const number = document.getElementById('number').value.trim();
+                const message = document.getElementById('message').value.trim();
+                if (!name || !number || !message) { alert('Please fill out all fields.'); return; }
+                const text = `New message from ${name} (${number}): ${message}`;
+                const url = `https://wa.me/+918530181486?text=${encodeURIComponent(text)}`;
+                const w = window.open(url, '_blank');
+                if (!w || w.closed) {
+                    whatsappLink.href = url;
+                    whatsappLink.textContent = 'Open WhatsApp';
+                    linkContainer.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
