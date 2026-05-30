@@ -1,0 +1,427 @@
+[1.6s] Doctor: What is your name?
+
+[2.5s] Patient: My name is Abdesh Prajapati.
+
+[4.0s] Doctor: What is your age?
+
+[5.0s] Patient: I am 22 years old.
+
+[6.5s] Doctor: What are your health complaints?
+
+[11.8s] Patient: I have dark spots on my face.
+
+[16.7s] Doctor: Since when?
+
+[18.1s] Patient: For the last 5 years.
+
+[20.9s] Doctor: How did you get dark spots?
+
+[24.9s] Patient: Actually, I don't know. I used to get small pimples on my face and I used to press and break them. I think the dark spots have increased because of that.
+
+[38.0s] Doctor: Did you get pimples before the dark spots appeared?
+
+[40.0s] Patient: Yes, pimple type. After breaking them, I got dark spots.
+
+[50.4s] Doctor: Okay. Are there any other factors?
+
+[55.3s] Patient: I still get pimples occasionally — once every 2 to 3 months. I don't get them treated. They go away on their own after a month or two. But after they go, dark spots remain.
+
+[85.5s] Doctor: So they are recurring and you just break them without treatment?
+
+[88.0s] Patient: Yes.
+
+[90.5s] Doctor: Do you have complaints of dandruff in your hair?
+
+[96.7s] Patient: Yes, I have dandruff and also hair fall.
+
+[101.2s] Doctor: Does dandruff always remain?
+
+[105.1s] Patient: Dandruff always remains but it increases in winters.
+
+[111.4s] Doctor: Is it dry or oily and flaky?
+
+[116.9s] Patient: It is dry. Totally dry.
+
+[119.5s] Doctor: But your scalp — is it dry or oily?
+
+[122.0s] Patient: My scalp is oily.
+
+[126.4s] Doctor: Do you get pimples on your back as well?
+
+[128.0s] Patient: Yes, I have pimples on my back too. And on my arms. I break those too.
+
+[133.0s] Doctor: Do you get pimples anywhere else?
+
+[135.0s] Patient: No, just back and face.
+
+[137.0s] Doctor: Did anyone in the family have complaints about pimples or acne?
+
+[140.0s] Patient: No.
+
+[142.0s] Doctor: Any other health problems?
+
+[144.0s] Patient: No other health problems.
+
+[146.0s] Doctor: Do you have itching in these pimples?
+
+[148.0s] Patient: No, no itching.
+
+[163.0s] Doctor: Does anyone in the family have any problem with acne?
+
+[168.9s] Patient: No, the family does not have any such problem.
+
+[170.9s] Doctor: Any chronic health issues in the family — diabetes, blood pressure, thyroid, asthma?
+
+[176.5s] Patient: No such illness in the family. But my father had a fracture in an accident.
+
+[192.0s] Doctor: Any other health issues since childhood?
+
+[195.0s] Patient: No.
+
+[203.7s] Doctor: Have you taken any treatment or medicines in the past?
+
+[206.0s] Patient: No. I have not taken any treatment for black spots or hair fall.
+
+[210.0s] Doctor: Are the scars only on the face or anywhere else?
+
+[223.9s] Patient: Scars are only on the face, but dark spots are on both the face and the back.
+
+[232.1s] Doctor: Do they itch?
+
+[234.0s] Patient: No, they don't itch.
+
+[235.5s] Doctor: Any other sensations?
+
+[237.0s] Patient: No.
+
+[238.0s] Doctor: Is your diet vegetarian or non-vegetarian?
+
+[240.0s] Patient: I am a pure vegetarian.
+
+[242.0s] Doctor: Any strong food likes or dislikes?
+
+[255.7s] Patient: I like eating sweet food very much.
+
+[265.8s] Doctor: Any strong dislikes?
+
+[267.9s] Patient: I don't like bitter things.
+
+[270.0s] Doctor: How much water do you drink? Do you feel thirsty or do you drink consciously?
+
+[283.1s] Patient: I drink only when I feel thirsty — about one glass at a time.
+
+[302.4s] Doctor: At what interval do you feel thirsty?
+
+[311.7s] Patient: There is no fixed pattern. Sometimes after 6 hours, sometimes after 1 hour.
+
+[318.3s] Doctor: Do you prefer cold or normal water?
+
+[324.0s] Patient: Normal cold water — not very cold.
+
+[332.2s] Doctor: How are your bowels? Any constipation, gas, or acidity?
+
+[336.0s] Patient: No constipation or gas. I get acidity sometimes when I drink too much tea.
+
+[345.0s] Doctor: How many times a day do you clear your stomach?
+
+[347.0s] Patient: Once a day, in the morning.
+
+[355.0s] Doctor: How much do you sweat?
+
+[358.0s] Patient: A lot — all over the body.
+
+[394.0s] Doctor: Do you feel like your body is heating up internally?
+
+[397.0s] Patient: Yes, I feel like my body is heating up.
+
+[400.0s] Doctor: Any bad smell in your sweat?
+
+[402.0s] Patient: No.
+
+[412.4s] Doctor: Do your clothes ever turn yellow or change colour due to sweat?
+
+[416.0s] Patient: Sometimes I notice my clothes turn slightly off-white. Not every time.
+
+[425.0s] Doctor: Which climate suits you most — cold or hot?
+
+[427.0s] Patient: Cold.
+
+[428.5s] Doctor: Any health complaints in summer?
+
+[430.0s] Patient: No.
+
+[432.0s] Doctor: Why do you prefer cold food?
+
+[435.0s] Patient: I like cold food. And most cold foods are sweet — like ice cream and cold drinks. I told you I like sweets a lot.
+
+[473.7s] Doctor: Do you sleep well?
+
+[476.0s] Patient: Yes, I sleep well. Around 6 to 7 hours.
+
+[480.0s] Doctor: Does it break in between or do you feel fresh when you wake up?
+
+[487.0s] Patient: Sometimes it breaks — mostly when I wake up for the washroom. But now I don't wake up even once at night.
+
+[496.5s] Doctor: Was it different before?
+
+[498.0s] Patient: Yes, 4 to 5 months ago I used to wake up many times at night to use the toilet. Now that has stopped.
+
+[513.2s] Doctor: Do you fall back asleep easily when you wake up?
+
+[515.0s] Patient: Yes, I fall asleep again quickly.
+
+[517.0s] Doctor: Do you feel fresh in the morning?
+
+[519.0s] Patient: Yes, but I don't feel like waking up. I feel like sleeping more. I forcefully wake up.
+
+[525.4s] Doctor: Do you have dreams?
+
+[528.0s] Patient: Yes, I have a lot of dreams but I don't remember most of them.
+
+[550.3s] Doctor: Is there any dream that comes again and again?
+
+[558.2s] Patient: I used to have a dream that I had cracked my interview and got a job. I don't have that dream anymore now that I have a job.
+
+[573.9s] Doctor: Any other dreams?
+
+[576.0s] Patient: Not any specific recurring one.
+
+[580.0s] Doctor: Do you feel like taking a nap during the day?
+
+[596.4s] Patient: Yes, I always feel like taking a nap, whether it is hot or cold weather.
+
+[600.0s] Doctor: Tell me about your family members.
+
+[603.0s] Patient: There are six members — me, my parents, two elder brothers, and one elder sister who is older than both the brothers. I am the youngest.
+
+[620.0s] Doctor: What does your father do?
+
+[624.1s] Patient: My father is a driver. He used to drive Uber but now drives an auto.
+
+[630.0s] Doctor: And your mother?
+
+[632.0s] Patient: She is a housewife.
+
+[633.5s] Doctor: What do your brothers do?
+
+[636.0s] Patient: Both are developers in the IT field — one is a senior developer and the other is a mid-level developer.
+
+[645.0s] Doctor: And your sister?
+
+[647.0s] Patient: She is recently married and is a housewife now.
+
+[653.3s] Doctor: Are the brothers married?
+
+[655.0s] Patient: No, all three of us are unmarried.
+
+[658.0s] Doctor: How are your relations within the family?
+
+[668.1s] Patient: Relations are good but I don't talk much to anyone at home. I only connect well with my mother.
+
+[680.2s] Doctor: What is the reason you don't open up with others at home?
+
+[685.5s] Patient: I don't even know why. Maybe because I am the youngest. I can't speak openly in front of my brothers. I don't want to share small things with them. When I was young we used to fight a lot. Now we don't fight but conversation has also gradually reduced.
+
+[737.3s] Doctor: Are you not connected to your father either?
+
+[741.8s] Patient: We talk only when there is some work. Otherwise not much.
+
+[744.1s] Doctor: Since how long have you been working?
+
+[749.3s] Patient: For the last 6 months.
+
+[753.1s] Doctor: What do you do?
+
+[754.0s] Patient: I am an AI intern.
+
+[756.8s] Doctor: Do you have any stress at work or in the family?
+
+[762.0s] Patient: No stress. My elder brother takes care of everything so I don't worry. At work also I handle all my tasks easily and manage deadlines without stress.
+
+[797.6s] Patient: Right now there is no stress. Maybe in the future it will increase.
+
+[807.4s] Doctor: How many friends do you have?
+
+[810.0s] Patient: I have a lot of friends. Around 6 to 7 close friends.
+
+[817.0s] Doctor: Are you friendly outside the home?
+
+[820.0s] Patient: Yes, I am open with everyone outside. Even with new people I am open. But at home I am quiet and reserved.
+
+[845.8s] Doctor: Tell me about your nature.
+
+[850.0s] Patient: I am very friendly. I don't hesitate to talk to anyone.
+
+[858.0s] Doctor: Are you emotionally sensitive or strong?
+
+[865.0s] Patient: I don't get affected by small things easily. I laugh a lot actually. When my friends are upset, I laugh — it is just a joke response. Things don't affect me much.
+
+[896.5s] Doctor: Any hobbies?
+
+[900.0s] Patient: I like playing games — BGMI, PUBG — and also drawing and painting.
+
+[939.6s] Doctor: Do you like outdoor games?
+
+[944.6s] Patient: I used to like cricket, but since I came into the IT field my interests have shifted.
+
+[952.2s] Doctor: Do you have any fears or phobias?
+
+[959.7s] Patient: I used to be afraid of not getting a job. My family was pressuring me to earn. When my interviews were not cracking, I was very tensed about whether I would get a job or not. Now that I have a job, that fear is gone.
+
+[997.9s] Doctor: What was your emotional state during that difficult period?
+
+[1020.2s] Patient: At that time I thought if I don't get a job I should open a small stall or shop with a friend. I thought I should do something on my own until I get a job.
+
+[1035.5s] Doctor: Let me examine your skin. I will do an AI analysis of your skin — it will tell us about your pigmentation, how deep or superficial it is. Based on that we will suggest the right treatment. The analysis shows your pigmentation is a little deep — not in the superficial layers. You have had this for a long time, around 4 to 5 years, along with recurring acne. We have to do two things: first, stop new pimples with medical treatment so they don't recur. Second, address the existing pigmentation. Melanin has accumulated in the skin. We will use medicines to help drain the melanin internally. We also have an external treatment called Exoderma which helps lighten the pigmentation. We do sessions once every 2 weeks — at least 6 to 8 sessions are needed. Along with medicines, which take 6 months to a year, we have a face wash and a kit for external use as well.
+
+[1209.4s] Doctor: So this will not be a complete cure, but it will lighten significantly. It is very important that you do not repeat the same habit of breaking pimples in the future.
+
+[1230.8s] Patient: Can the pigmentation increase further?
+
+[1233.0s] Doctor: The pigmentation itself has not increased in the last 4 years. If new acne comes and you break it, then yes it can increase. If you do not break new pimples, the existing pigmentation will not increase.
+
+
+
+
+# My name is Abdesh Prajapati.
+
+I am 22 years old.
+
+I have dark spots on my face.
+
+For the last 5 years.
+
+Actually, I don't know. I used to get small pimples on my face and I used to press and break them. I think the dark spots have increased because of that.
+
+Yes, pimple type. After breaking them, I got dark spots.
+
+I still get pimples occasionally — once every 2 to 3 months. I don't get them treated. They go away on their own after a month or two. But after they go, dark spots remain.
+
+Yes.
+
+Yes, I have dandruff and also hair fall.
+
+Dandruff always remains but it increases in winters.
+
+It is dry. Totally dry.
+
+My scalp is oily.
+
+Yes, I have pimples on my back too. And on my arms. I break those too.
+
+No, just back and face.
+
+No.
+
+No other health problems.
+
+No, no itching.
+
+No, the family does not have any such problem.
+
+No such illness in the family. But my father had a fracture in an accident.
+
+No.
+
+No. I have not taken any treatment for black spots or hair fall.
+
+Scars are only on the face, but dark spots are on both the face and the back.
+
+No, they don't itch.
+
+No.
+
+I am a pure vegetarian.
+
+I like eating sweet food very much.
+
+I don't like bitter things.
+
+I drink only when I feel thirsty — about one glass at a time.
+
+There is no fixed pattern. Sometimes after 6 hours, sometimes after 1 hour.
+
+Normal cold water — not very cold.
+
+No constipation or gas. I get acidity sometimes when I drink too much tea.
+
+Once a day, in the morning.
+
+A lot — all over the body.
+
+Yes, I feel like my body is heating up.
+
+No.
+
+Sometimes I notice my clothes turn slightly off-white. Not every time.
+
+Cold.
+
+No.
+
+I like cold food. And most cold foods are sweet — like ice cream and cold drinks. I told you I like sweets a lot.
+
+Yes, I sleep well. Around 6 to 7 hours.
+
+Sometimes it breaks — mostly when I wake up for the washroom. But now I don't wake up even once at night.
+
+Yes, 4 to 5 months ago I used to wake up many times at night to use the toilet. Now that has stopped.
+
+Yes, I fall asleep again quickly.
+
+Yes, but I don't feel like waking up. I feel like sleeping more. I forcefully wake up.
+
+Yes, I have a lot of dreams but I don't remember most of them.
+
+I used to have a dream that I had cracked my interview and got a job. I don't have that dream anymore now that I have a job.
+
+Not any specific recurring one.
+
+Yes, I always feel like taking a nap, whether it is hot or cold weather.
+
+There are six members — me, my parents, two elder brothers, and one elder sister who is older than both the brothers. I am the youngest.
+
+My father is a driver. He used to drive Uber but now drives an auto.
+
+She is a housewife.
+
+Both are developers in the IT field — one is a senior developer and the other is a mid-level developer.
+
+She is recently married and is a housewife now.
+
+No, all three of us are unmarried.
+
+Relations are good but I don't talk much to anyone at home. I only connect well with my mother.
+
+I don't even know why. Maybe because I am the youngest. I can't speak openly in front of my brothers. I don't want to share small things with them. When I was young we used to fight a lot. Now we don't fight but conversation has also gradually reduced.
+
+We talk only when there is some work. Otherwise not much.
+
+For the last 6 months.
+
+I am an AI intern.
+
+No stress. My elder brother takes care of everything so I don't worry. At work also I handle all my tasks easily and manage deadlines without stress.
+
+Right now there is no stress. Maybe in the future it will increase.
+
+I have a lot of friends. Around 6 to 7 close friends.
+
+Yes, I am open with everyone outside. Even with new people I am open. But at home I am quiet and reserved.
+
+I am very friendly. I don't hesitate to talk to anyone.
+
+I don't get affected by small things easily. I laugh a lot actually. When my friends are upset, I laugh — it is just a joke response. Things don't affect me much.
+
+I like playing games — BGMI, PUBG — and also drawing and painting.
+
+I used to like cricket, but since I came into the IT field my interests have shifted.
+
+I used to be afraid of not getting a job. My family was pressuring me to earn. When my interviews were not cracking, I was very tensed about whether I would get a job or not. Now that I have a job, that fear is gone.
+
+At that time I thought if I don't get a job I should open a small stall or shop with a friend. I thought I should do something on my own until I get a job.
+
+Can the pigmentation increase further?
+
+
+# 
